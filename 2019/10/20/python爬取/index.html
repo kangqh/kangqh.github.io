@@ -103,68 +103,6 @@
             <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    document.ready(
-        function () {
-            tocbot.init({
-                tocSelector: '.tocbot-list',
-                contentSelector: '.post-content',
-                headingSelector: 'h1, h2, h3, h4, h5',
-                collapseDepth: 1,
-                orderedList: false,
-                scrollSmooth: true,
-            })
-        }
-    )
-
-    function expand_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 6,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "collapse_toc()");
-        b.innerHTML = "Collapse all"
-    }
-
-    function collapse_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 1,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "expand_toc()");
-        b.innerHTML = "Expand all"
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-</script>
-    
 
     
     <article class="post-wrap">
@@ -178,7 +116,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">October 20, 2019&nbsp;&nbsp;18:18:23</a>
+                        Date: <a href="#">October 20, 2019&nbsp;&nbsp;23:10:15</a>
                         </span>
                     
                     
@@ -188,7 +126,24 @@
 
         <div class="post-content">
             <hr>
-<h2 id="title-DNS注入"><a href="#title-DNS注入" class="headerlink" title="title:DNS注入 "></a>title:DNS注入 </h2><p>待写。。</p>
+<p>title:文章分析-python爬取</p>
+<p><strong>背景</strong></p>
+<p>在渗透测试过程中，如果我们已经取得了一定的权限，就可以下载一些文件了。如果我们对某一种类型的文件比较感兴趣，就可以下载到本地进行分析了。这里我们可以使用python来帮助我们完成这项任务。</p>
+<p><strong>思路</strong></p>
+<p>我们使用ssh连接来下载文件。首先假设我们已经获得了一个可以进行ssh连接的账户。例如root ，root。<br>然后去遍历服务器上的文件夹和文件。可以把文件夹结构复制到本地，去获得更多的信息。<br>如果遇到了感兴趣的文件后缀。就把文件下载到本地。<br>如果对配置文件感兴趣，可以下载ini，cnf等类型的文件。<br>如果对文档感兴趣，可以下载xls,doc等类型的文件。</p>
+<p><strong>开始编码</strong></p>
+<p>首先导入我们需要的模块</p>
+<pre><code>import os
+import paramiko
+from stat import *</code></pre><p>开始连接，连接所产生的信息会保存在当前目录下的paramiko.log文件中。<br>Transport((host,port))会新建一个Transport对象，第一个参数为目标主机的ip和ssh服务所用端口。其他参数默认即可。此时并未开始连接。<br>connect()函数在之前的基础上建立一个ssh连接。这里还没有建立sftp连接，我们会使用sftp连接来传输文件。<br>from_transport()函数会开始真正的在ssh连接的基础上建立一个sftp客户端。</p>
+<pre><code>paramiko.util.log_to_file(&quot;paramiko.log&quot;)   
+sf = paramiko.Transport((host,port))   sf.connect(username = username,password = password)
+sftp = paramiko.SFTPClient.from_transport(sf)</code></pre><p>遍历所有的目录<br>stat()函数会返回一个SFTPAttributes对象:</p>
+<p><img src="https://s2.ax1x.com/2019/10/20/KMjGAf.png" alt="KMjGAf.png"></p>
+<p>这里使用递归的方法来遍历所有的文件。递归是遍历目录时经常使用的一种方法。</p>
+<p><strong>结果</strong></p>
+<p>我们下载txt文件,运行结果：</p>
+<p><img src="https://s2.ax1x.com/2019/10/20/KMjgCF.png" alt="KMjgCF.png"></p>
 
         </div>
 
@@ -203,7 +158,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://yoursite.com/2019/10/20/MySQL注入 — Dns 注入/">http://yoursite.com/2019/10/20/MySQL注入 — Dns 注入/</a></span>
+                        <span><a href="http://yoursite.com/2019/10/20/python爬取/">http://yoursite.com/2019/10/20/python爬取/</a></span>
                     </p>
                 
                 
@@ -236,10 +191,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/10/20/MSSQL注入 — 反弹注入/">MSSQL注入 — 反弹注入</a>
             
-            
-            <a class="next" rel="next" href="/2019/10/20/Accsess注入 — 偏移注入/">Accsess注入 — 偏移注入</a>
+            <a class="next" rel="next" href="/2019/10/20/渗透思路/"></a>
             
         </section>
 
