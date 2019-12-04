@@ -178,7 +178,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">November 12, 2019&nbsp;&nbsp;17:03:19</a>
+                        Date: <a href="#">December 4, 2019&nbsp;&nbsp;19:00:32</a>
                         </span>
                     
                     
@@ -187,8 +187,36 @@
         </header>
 
         <div class="post-content">
-            <hr>
-<h2 id="title-Misc2-编码与密码"><a href="#title-Misc2-编码与密码" class="headerlink" title="title:Misc2.编码与密码"></a>title:Misc2.编码与密码</h2><pre><code>https://bbs.zkaq.cn/t/4132.html</code></pre><p>本人在某安全社区写的文章</p>
+            <h1 id="米斯特白帽培训讲义-工具篇-Safe3-WVS"><a href="#米斯特白帽培训讲义-工具篇-Safe3-WVS" class="headerlink" title="米斯特白帽培训讲义 工具篇 Safe3 WVS"></a>米斯特白帽培训讲义 工具篇 Safe3 WVS</h1><blockquote>
+<p>讲师：<a href="https://www.zhihu.com/people/gh0stkey/answers" target="_blank" rel="noopener">gh0stkey</a></p>
+</blockquote>
+<blockquote>
+<p>整理：<a href="https://github.com/" target="_blank" rel="noopener">飞龙</a></p>
+</blockquote>
+<blockquote>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Safe3 WVS 是一款使用较为领先的智能化爬虫技术及 SQL 注入状态检测技术的工具，相比国内外同类产品智能化程度更高，速度更快，结果更准确。</p>
+<p>所以我们一般用它检测 SQL 注入漏洞。不过目前也可以利用这款工具进行反射 XSS 的挖掘，因为他可以通过自动化的载荷来测试并判断网页源码，从而判断是否存在反射型 XSS 漏洞。</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1fazfro1a21j20qy0ly0ty.jpg" alt></p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>首先需要下载并安装 .net 2.0 框架，XP 之前可以需要单独安装，Win7 之后都自带了。</p>
+<p>然后在<a href="http://down.52pojie.cn/LCG/Safe3WVS_10.1_Crack_By_Lkou[LCG].rar" target="_blank" rel="noopener">吾爱云盘</a>下载 Safe3。</p>
+<p>下载之后无需安装，直接打开使用即可。</p>
+<h2 id="注入漏洞的扫描"><a href="#注入漏洞的扫描" class="headerlink" title="注入漏洞的扫描"></a>注入漏洞的扫描</h2><p><img src="http://ww2.sinaimg.cn/large/841aea59jw1fazfrrmosmj20ra070aa9.jpg" alt></p>
+<p>打开程序主界面后，我们在上方的输入框中输入 URL。在漏洞设置分组框中选择“sql注入”和“xss”。然后如果需要设置 cookie 的话，在扫描设置分组框中输入 cookie，cookie 可以通过浏览器来获取，不同浏览器的获取方法不同。</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1fazfrva08xj20qe0kwwft.jpg" alt></p>
+<p>填写完毕之后点击“开始”按钮，扫描结束之后我们会在下方的列表框中看到漏洞信息。</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1fazfrydyboj20qc0lg0vw.jpg" alt></p>
+<p>我们可以在列表框中点击右键，然后选择导出报表。</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1fazfs31t62j20qg0l6ad2.jpg" alt></p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1fazfs7f39bj20vf0te0u1.jpg" alt></p>
+<p>在 Safe3 的目录下，我们会看到一个<code>spider.log</code>，这个文件以纯文本的形式保存了漏洞信息。我们打开它：</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1fazfsanwj3j20ur0r4q8d.jpg" alt></p>
+<p>我们可以编写一个<code>python</code>文件来提取其中的 SQL 注入 URL：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"></span><br><span class="line">fi = open(<span class="string">'spider.log'</span>, <span class="string">'r'</span>)</span><br><span class="line">fo = open(<span class="string">'spider_sql.log'</span>, <span class="string">'w'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> fi.readlines():</span><br><span class="line">    line = line.strip(<span class="string">'\n'</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">'sql注入'</span> <span class="keyword">in</span> line:</span><br><span class="line">        url = line.split(<span class="string">' '</span>)[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">print</span> url</span><br><span class="line">        fo.write(url)</span><br><span class="line">        fo.write(<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line">fi.close()</span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure>
+
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>Web 安全扫描器天梯：</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1fbdomw5ofsj20go0je0vk.jpg" alt></p>
 
         </div>
 
@@ -203,7 +231,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://yoursite.com/2019/11/12/Misc2.编码与密码/">http://yoursite.com/2019/11/12/Misc2.编码与密码/</a></span>
+                        <span><a href="http://yoursite.com/2019/12/04/工具篇 Safe3 WVS/">http://yoursite.com/2019/12/04/工具篇 Safe3 WVS/</a></span>
                     </p>
                 
                 
@@ -236,10 +264,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/12/04/工具篇 AWVS/"></a>
+                <a class="prev" rel="prev" href="/2019/12/04/工具篇 Nmap/"></a>
             
             
-            <a class="next" rel="next" href="/2019/11/12/2019网络空间竞赛Misc1.编码/">2019网络空间竞赛Misc1.编码</a>
+            <a class="next" rel="next" href="/2019/12/04/漏洞篇 CSRF/"></a>
             
         </section>
 

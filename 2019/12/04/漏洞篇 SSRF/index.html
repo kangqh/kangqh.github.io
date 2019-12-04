@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Velpro_Q&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Velpro_Q&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title"></h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">December 4, 2019&nbsp;&nbsp;19:00:32</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="米斯特白帽培训讲义-漏洞篇-SSRF"><a href="#米斯特白帽培训讲义-漏洞篇-SSRF" class="headerlink" title="米斯特白帽培训讲义 漏洞篇 SSRF"></a>米斯特白帽培训讲义 漏洞篇 SSRF</h1><blockquote>
+<p>讲师：<a href="https://www.zhihu.com/people/gh0stkey/answers" target="_blank" rel="noopener">gh0stkey</a></p>
+</blockquote>
+<blockquote>
+<p>整理：<a href="https://github.com/" target="_blank" rel="noopener">飞龙</a></p>
+</blockquote>
+<blockquote>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<p>很多 Web 应用都提供了从其他服务器上获取数据的功能。使用用户指定的 URL，web 应用可以获取图片，下载文件，读取文件内容等。这个功能如果被恶意使用，可以利用存在缺陷的 Web 应用作为代理，攻击远程和本地服务器。这种形式的攻击成为服务器请求伪造（SSRF）。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$url = @$_GET[<span class="string">'url'</span>];</span><br><span class="line"><span class="keyword">if</span>($url) &#123;</span><br><span class="line">    $ch = curl_init();</span><br><span class="line">    curl_setopt($ch, CURLOPT_URL, $url);</span><br><span class="line">    curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">    curl_setopt($ch, CURLOPT_HEADER, <span class="number">0</span>);</span><br><span class="line">    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, <span class="keyword">false</span>);</span><br><span class="line">    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, <span class="keyword">false</span>);</span><br><span class="line">    $co = curl_exec($ch);</span><br><span class="line">    curl_close($ch);</span><br><span class="line">    <span class="keyword">echo</span> $co;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码从 URL 中读取<code>url</code>参数，之后访问<code>url</code>参数所指向的 URL 资源，最后把资源显示在页面上。（当然这个代码有些简陋了，不是真正的代理，有些资源可能处理不好。）</p>
+<p>我们将其保存为<code>ssrf.php</code>并部署。之后我们访问<code>localhost/ssrf.php?url=http://www.baidu.com</code>：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-c5d7c31d19df5908.jpg" alt></p>
+<p>可以看到显示正常。这个漏洞还可以用于访问本地的图片，我们再访问<code>file:///C:/Windows/win.ini</code>：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-44dc1d7ebd79a0a4.jpg" alt></p>
+<p>页面上是乱的，但是我们查看源代码，也可以正常显示。</p>
+<h2 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h2><p>可以对服务器所在内网以及本地进行端口扫描，获取服务的指纹信息。指纹识别通过访问默认文件来实现：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-1e6000ba381b655e.jpg" alt></p>
+<p>这张图中，我们访问了<code>10.50.33.43</code>的 Tomcat 服务的默认文件。<code>10.50.33.43</code>是内网，我们直接访问是访问不了的，但是通过 SSRF 就可以。并且，我们通过访问 Tomcat 的默认文件确定了这台机子上部署了 Tomcat 服务。</p>
+<p>确定了所部署的服务之后，我们就可以有针对性的攻击内网部署的应用。比如 ST2 和 SQL 注入这种通过 GET 方法实施的攻击。</p>
+<p>我们还可以利用该漏洞读取服务器中的配置文件，比如上面的<code>win.ini</code>。</p>
+<h2 id="挖掘"><a href="#挖掘" class="headerlink" title="挖掘"></a>挖掘</h2><p>以下业务场景容易出现这种漏洞：</p>
+<ol>
+<li><p>应用从用户指定的 URL 获取图片，然后把它用一个随机名称保存在硬盘上，并展示给用户：</p>
+</li>
+<li><p>应用获取用户指定 URL 的数据（文件或者 HTML）。这个函数会使用 socket 和 服务器建立 TCP 连接，传输原始数据。</p>
+</li>
+<li><p>应用根据用户提供的 URL，抓取用户的 Web 站点，并且自动生成移动 Wap 站。</p>
+</li>
+<li><p>应用提供测速功能，能够根据用户提供的 URL，访问目标站点，以获取其在对应经纬度的访问速度。</p>
+</li>
+</ol>
+<h3 id="Web-功能"><a href="#Web-功能" class="headerlink" title="Web 功能"></a>Web 功能</h3><p>我们从上面的概述可以看出，SSRF 是由于服务端获取其它服务器的相关信息的功能中形成的，因此我们可以列举几种在 Web 应用中，常见的从服务端获取其它服务端信息的功能。</p>
+<p>1）分享：通过 URL 分享网页内容</p>
+<p>早期分享应用，为了更好地提供用户体验，WEB 应用在分享功能汇总，通过会获取目标 URL 地址网页内容中的<code>&lt;title&gt;</code>标签或者<code>&lt;meta name=&quot;description&quot; /&gt;</code>标签中的文本内容，作为显示，来提供更好的用户体验。例如，人人网分享功能中：</p>
+<p><img src="http://p6.qhimg.com/t014393fd344f62b61d.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://widget.renren.com/****?resourceUrl=****</span><br></pre></td></tr></table></figure>
+
+<p>通过目标 URL 地址获取了<code>title</code>标签和相关文本内容。如果在此功能中没有对目标地址范围做过滤与限制，就存在 SSRF 漏洞。</p>
+<p>根据这个功能，我们可以发现许多互联网公司都有这样的功能，下面是我们从百度分享集成的截图，如下：</p>
+<p><img src="http://p1.qhimg.com/t016ed3285f68a3cd9e.png" alt></p>
+<p>从国内某漏洞提交平台上提交的 SSRF 漏洞，可以发现包括淘宝、百度、新浪等国内知名公司都曾发现过分享功能上存在 SSRF 漏洞。</p>
+<p>2）转码服务：通过 URL 地址把原地址的网页内容调优使其适合手机屏幕浏览</p>
+<p>由于手机屏幕大小的关系，直接浏览网页内容时会造成许多不便，因此有些公司提供了转码功能，把网页内容通过相关手段转为适合手机屏幕浏览的演示。例如百度、腾讯、搜狗等公司都提供在线转码服务。</p>
+<p>3）在线翻译：通过 URL 地址翻译对应文本的内容。提供此功能的国内公司有百度、有道等</p>
+<p>4）图片加载与下载：通过 URL 地址加载或下载图片</p>
+<p>此功能用到的地方很多，但大多比较隐秘，比如有些公司加载自家图片服务器上的图片用于展示。（有些公司会把外站图片转存到自家服务器，所以在 HTTP 读取图片时就可能造成 SSRF 问题。）</p>
+<p>5）图片、文章收藏功能</p>
+<p>此处的文章收藏类似于分享功能中获取 URL 地址中的标题以及内容作为显示，目的还是为了更好的用户体验。图片收藏就类似于图片加载。</p>
+<p>6）未公开的 API 实现以及其他调用 URL 的功能</p>
+<p>此处类似的功能有 360 提供的网站评分，以及有些网站通过 API 获取远程地址 XML 文件来加载内容。</p>
+<p>这些功能中除了分宜和转换服务为公共服务，其他功能均有可能在企业应用开发过程中遇到。</p>
+<h3 id="URL-关键词寻找"><a href="#URL-关键词寻找" class="headerlink" title="URL 关键词寻找"></a>URL 关键词寻找</h3><p>根据对存在 SSRF 漏洞的 URL 地址特征的观察，通过我一段时间的手机，大致有一下关键字：</p>
+<ul>
+<li>share</li>
+<li>wap</li>
+<li>url</li>
+<li>image</li>
+<li>link</li>
+<li>src</li>
+<li>source</li>
+<li>target</li>
+<li>u</li>
+<li>3g</li>
+<li>display</li>
+<li>sourceUrl</li>
+<li>imageUrl</li>
+<li>domain</li>
+</ul>
+<p>如果利用 google 语法（<code>inurl:url=</code>）加上这些关键字去寻找 SSRF 漏洞，耐心的验证，现在还是可以找到存在的 SSRF 漏洞。</p>
+<h3 id="漏洞验证"><a href="#漏洞验证" class="headerlink" title="漏洞验证"></a>漏洞验证</h3><p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.douban.com/***/service?image=http://www.baidu.com/img/bd_logo1.png</span><br></pre></td></tr></table></figure>
+
+<p>排除法一：</p>
+<p>你可以直接右键图片，在新窗口打开图片，如果浏览器上 URL 地址栏中是<code>http://www.baidu.com/img/bd_logo1.png</code>，则不存在 SSRF。</p>
+<p>排除法二：</p>
+<p>你可以使用 Burp 等抓包工具来判断是否是 SSRF，首先 SSRF 是由服务端发起的请求，因此在加载图片的时候，是由服务端发起的，所以我们本地浏览器中的请求就不应该存在图片的请求，在此例子中，如果刷新当前页面，有如下请求，则可判断不是 SSRF。</p>
+<p><img src="http://p9.qhimg.com/t01554ac9cba1ae96e9.png" alt></p>
+<p>比如，图片是百度上的，你调用的是搜狗，浏览器向百度请求图片，那么就不存在 SSRF 漏洞。如果浏览器向搜狗请求图片，那么就说明搜狗服务器发送了请求，向百度请求图片，可能存在 SSRF。</p>
+<p>此处说明下，为什么这边用排除法来判断是否存在 SSRF。举个例子：</p>
+<p><img src="http://p2.qhimg.com/t01080058bb303b1e6f.png" alt></p>
+<p>现在大多数修复 SSRF 的方法基本都是区分内外网来做限制。如果我们请求：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://read.******.com/image?umageUrl=http://10.10.10.1/favicon.ico</span><br></pre></td></tr></table></figure>
+
+<p>而没有内容显示，我们就无法判断此处不存在 SSRF，或者<code>http://10.10.10.1/favicon.ico</code>被过滤了，还是根本就没有这个图片。因为我们事先不知道这个地址的文件是否存在，我们判断不出是哪个原因，所以使用排除法。</p>
+<p>实例验证：</p>
+<p>经过简单的排除验证之后，我们就要验证看看此URL是否可以来请求对应的内网地址。在此例子中，首先我们要获取内网存在HTTP服务且存在favicon.ico文件的地址，才能验证是否是SSRF漏洞。</p>
+<p>找存在HTTP服务的内网地址：</p>
+<p>一、从漏洞平台中的历史漏洞寻找泄漏的存在web应用内网地址</p>
+<p>二、通过二级域名暴力猜解工具模糊猜测内网地址</p>
+<p><img src="http://p0.qhimg.com/t01111bbf7ba9e818bc.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example:ping xx.xx.com.cn</span><br></pre></td></tr></table></figure>
+
+<p>可以推测<code>10.215.x.x</code>此段就有很大的可能：<code>http://10.215.x.x/favicon.ico</code>存在。</p>
+<p>再举一个特殊的例子来说明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://fanyi.baidu.com/transpage?query=http://www.baidu.com/s?wd=ip&amp;source=url&amp;ie=utf8&amp;from=auto&amp;to=zh&amp;render=1</span><br></pre></td></tr></table></figure>
+
+<p>此处得到的IP 不是我所在地址使用的IP，因此可以判断此处是由服务器发起的<code>http://www.baidu.com/s?wd=ip</code>请求得到的地址，自然是内部逻辑中发起请求的服务器的外网地址（为什么这么说呢，因为发起的请求的不一定是fanyi.baidu.com，而是内部其他服务器）,那么此处是不是SSRF，能形成危害吗？  严格来说此处是SSRF，但是百度已经做过了过滤处理，因此形成不了探测内网的危害。</p>
+<h2 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h2><p>通常有一下 5 个思路：</p>
+<ol>
+<li><p>过滤返回信息，验证远程服务器对请求的相应，是比较容易的方法。如果 Web 应用获取某种类型的文件，那么可以在把返回结果展示给用户之前先验证返回信息是否符合标准。</p>
+</li>
+<li><p>统一错误信息，避免用户根据错误信息来判断远程服务器端口状态。</p>
+</li>
+<li><p>限制请求的端口为 HTTP 常用端口，比如 80、443、8080、8090。</p>
+</li>
+<li><p>黑名单内网 IP，避免应用被用来获取内网数据，攻击内网。</p>
+</li>
+<li><p>禁用不需要的协议。仅仅允许 HTTP 和 HTTPS 请求。可以防止类似于<code>file://</code>、<code>gopher://</code>和<code>ftp://</code>等引起的问题。</p>
+</li>
+</ol>
+<h2 id="绕过"><a href="#绕过" class="headerlink" title="绕过"></a>绕过</h2><h3 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://username:password@www.xxx.com:80/</span><br><span class="line"> |       |       |        |           |</span><br><span class="line">协议   用户名   密码     主机        端口</span><br></pre></td></tr></table></figure>
+
+<p>所以我们就可以使用这个格式来绕过：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.baidu.com@www.qq.com/</span><br></pre></td></tr></table></figure>
+
+<h3 id="IP-转换"><a href="#IP-转换" class="headerlink" title="IP 转换"></a>IP 转换</h3><p>转为数字：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<p>转为十六进制：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0x7F.0x00.0x00.0x01</span><br><span class="line">0x7F000001</span><br></pre></td></tr></table></figure>
+
+<p>转为八进制；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0177.0000.0000.0001</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\asus\Desktop&gt; ping 0x7F.0x00.0x00.0x01</span><br><span class="line"></span><br><span class="line">正在 Ping 127.0.0.1 具有 32 字节的数据:</span><br><span class="line">来自 127.0.0.1 的回复: 字节=32 时间&lt;1ms TTL=128</span><br><span class="line">来自 127.0.0.1 的回复: 字节=32 时间&lt;1ms TTL=128</span><br><span class="line">来自 127.0.0.1 的回复: 字节=32 时间&lt;1ms TTL=128</span><br><span class="line">来自 127.0.0.1 的回复: 字节=32 时间&lt;1ms TTL=128</span><br><span class="line"></span><br><span class="line">127.0.0.1 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = 0ms，最长 = 0ms，平均 = 0ms</span><br><span class="line">C:\Users\asus\Desktop&gt; ping 0x7F000001</span><br><span class="line"></span><br><span class="line">正在 Ping 127.0.0.1 具有 32 字节的数据:</span><br><span class="line">来自 127.0.0.1 的回复: 字节=32 时间&lt;1ms TTL=128</span><br><span class="line">来自 127.0.0.1 的回复: 字节=32 时间&lt;1ms TTL=128</span><br><span class="line">来自 127.0.0.1 的回复: 字节=32 时间&lt;1ms TTL=128</span><br><span class="line">来自 127.0.0.1 的回复: 字节=32 时间&lt;1ms TTL=128</span><br><span class="line"></span><br><span class="line">127.0.0.1 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = 0ms，最长 = 0ms，平均 = 0ms</span><br><span class="line">C:\Users\asus\Desktop&gt; ping 0177.0000.0000.0001</span><br><span class="line"></span><br><span class="line">正在 Ping 127.0.0.1 具有 32 字节的数据:</span><br><span class="line">来自 127.0.0.1 的回复: 字节=32 时间&lt;1ms TTL=128</span><br><span class="line">来自 127.0.0.1 的回复: 字节=32 时间&lt;1ms TTL=128</span><br><span class="line">来自 127.0.0.1 的回复: 字节=32 时间&lt;1ms TTL=128</span><br><span class="line">来自 127.0.0.1 的回复: 字节=32 时间&lt;1ms TTL=128</span><br><span class="line"></span><br><span class="line">127.0.0.1 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = 0ms，最长 = 0ms，平均 = 0ms</span><br></pre></td></tr></table></figure>
+
+<h3 id="URL-跳转"><a href="#URL-跳转" class="headerlink" title="URL 跳转"></a>URL 跳转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php header(&quot;Location: $_GET[&apos;url&apos;]&quot;); ?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>保存为<code>urllocation.php</code>然后部署，之后可以用<code>http://&lt;host&gt;/urllocation.php?url=&lt;url&gt;</code>来跳转。</p>
+<h3 id="短网址"><a href="#短网址" class="headerlink" title="短网址"></a>短网址</h3><p>百度：<a href="http://dwz.cn/" target="_blank" rel="noopener">http://dwz.cn/</a></p>
+<h3 id="xip-io"><a href="#xip-io" class="headerlink" title="xip.io"></a><a href="http://xip.io" target="_blank" rel="noopener">xip.io</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">            gg                       gg</span><br><span class="line">            &quot;&quot;                       &quot;&quot;</span><br><span class="line">,gg,   ,gg  gg   gg,gggg,            gg     ,ggggg,</span><br><span class="line"> &quot;&quot;8b,dP&quot;   88   I8P&quot;  &quot;Yb           88    dP&quot;  &quot;Y8ggg</span><br><span class="line">   ,88&quot;     88   I8&apos;    ,8i          88   i8&apos;    ,8I</span><br><span class="line"> ,dP&quot;Y8,  _,88,_,I8 _  ,d8&apos;   d8b  _,88,_,d8,   ,d8&apos;</span><br><span class="line">dP&quot;   &quot;Y888P&quot;&quot;Y8PI8 YY88888P  Y8P  8P&quot;&quot;Y8P&quot;Y8888P&quot;</span><br><span class="line">                 I8</span><br><span class="line">                 I8    wildcard DNS for everyone </span><br><span class="line">                 &quot;&quot;</span><br><span class="line">    </span><br><span class="line">What is xip.io?</span><br><span class="line">xip.io is a magic domain name that provides wildcard DNS</span><br><span class="line">for any IP address. Say your LAN IP address is 10.0.0.1.</span><br><span class="line">Using xip.io,</span><br><span class="line"></span><br><span class="line">          10.0.0.1.xip.io   resolves to   10.0.0.1</span><br><span class="line">      www.10.0.0.1.xip.io   resolves to   10.0.0.1</span><br><span class="line">   mysite.10.0.0.1.xip.io   resolves to   10.0.0.1</span><br><span class="line">  foo.bar.10.0.0.1.xip.io   resolves to   10.0.0.1</span><br><span class="line"></span><br><span class="line">...and so on. You can use these domains to access virtual</span><br><span class="line">hosts on your development web server from devices on your</span><br><span class="line">local network, like iPads, iPhones, and other computers.</span><br><span class="line">No configuration required!</span><br><span class="line">    </span><br><span class="line">How does it work?</span><br><span class="line">xip.io runs a custom DNS server on the public Internet.</span><br><span class="line">When your computer looks up a xip.io domain, the xip.io</span><br><span class="line">DNS server extracts the IP address from the domain and</span><br><span class="line">sends it back in the response.</span><br><span class="line">    </span><br><span class="line">Does xip.io cost anything?</span><br><span class="line">Nope! xip.io is a free service from Basecamp, the</span><br><span class="line">creators of Pow. We were tired of jumping through hoops</span><br><span class="line">to test our apps on other devices and decided to solve</span><br><span class="line">the problem once and for all.</span><br><span class="line">    </span><br><span class="line">© 2012-2014 Sam Stephenson, Basecamp</span><br></pre></td></tr></table></figure>
+
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><ul>
+<li><a href="https://www.sobug.com/article/detail/11" target="_blank" rel="noopener">SSRF漏洞的挖掘经验</a></li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2019/12/04/漏洞篇 SSRF/">http://yoursite.com/2019/12/04/漏洞篇 SSRF/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY<strong>?</strong></strong></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/12/04/漏洞篇 SQL注入/"></a>
+            
+            
+            <a class="next" rel="next" href="/2019/12/04/漏洞篇 XSS/"></a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

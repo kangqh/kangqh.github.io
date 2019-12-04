@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Velpro_Q&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Velpro_Q&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title"></h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">December 4, 2019&nbsp;&nbsp;19:00:32</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="米斯特白帽培训讲义-工具篇-BruteXSS"><a href="#米斯特白帽培训讲义-工具篇-BruteXSS" class="headerlink" title="米斯特白帽培训讲义 工具篇 BruteXSS"></a>米斯特白帽培训讲义 工具篇 BruteXSS</h1><blockquote>
+<p>讲师：<a href="https://www.zhihu.com/people/gh0stkey/answers" target="_blank" rel="noopener">gh0stkey</a></p>
+</blockquote>
+<blockquote>
+<p>整理：<a href="https://github.com/" target="_blank" rel="noopener">飞龙</a></p>
+</blockquote>
+<blockquote>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>BruteXSS 是一个非常强大和快速的跨站点脚本检测工具，可用于暴力注入参数。BruteXSS 从指定的词库加载多种有效载荷进行注入，并且使用指定的载荷和扫描检查这些存在 XSS 漏洞的参数。得益于非常强大的扫描功能，在执行任务时，BruteXSS 非常准确而且极少误报。 BruteXSS 支持 POST 和 GET 请求，并适应现代 Web 应用程序。</p>
+<p>特性：</p>
+<ul>
+<li>XSS 爆破</li>
+<li>XSS 扫描</li>
+<li>GET/POST 请求</li>
+<li>可包含自定义单词</li>
+<li>人性化的 UI</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>首先安装 Python 2.7。</p>
+<p>依赖是<code>Colorama</code>和<code>Mechanize</code>两个库。但我看到源码中包含了这两个库，所以一般不用自己安装。如果运行失败，那么执行这两条命令手动安装一下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install colorama</span><br><span class="line">pip install Mechanize</span><br></pre></td></tr></table></figure>
+
+<p>之后从<code>https://github.com/shawarkhanethicalhacker/BruteXSS/zipball/master</code>下载所有文件，解压。</p>
+<p>还需要单词列表，原版的<code>wordlist.txt</code>有 20 条语句，只能执行基本的 XSS 检查。</p>
+<p><code>https://github.com/ym2011/penetration/blob/master/BruteXSS/wordlist-small.txt</code>这个文件有 100 条语句，可以执行相对全面的 XSS 检查。</p>
+<p><code>https://github.com/ym2011/penetration/blob/master/BruteXSS/wordlist-medium.txt</code>这个文件有 200 条语句，可以执行绕过 WAF 的 XSS 检查。</p>
+<p><code>https://github.com/ym2011/penetration/blob/master/BruteXSS/wordlist-huge.txt</code>这个文件有 5000 条语句，可以非常全面并且执行绕过 WAF 的 XSS 检查。</p>
+<p>然后为了模拟被测页面，我们还要部署一个页面：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">\\XSS反射演示</span><br><span class="line">&lt;form action=<span class="string">""</span> method=<span class="string">"get"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"xss"</span>/&gt;</span><br><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"test"</span>/&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$xss = @$_GET[<span class="string">'xss'</span>];</span><br><span class="line"><span class="keyword">if</span>($xss!==<span class="keyword">null</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> $xss;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>假设我们能够通过<code>localhost/xss.php</code>来访问它。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>首先在解压处执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python brutexss.py</span><br></pre></td></tr></table></figure>
+
+<p>于是就进入命令行界面了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">                                                                                </span><br><span class="line">  ____             _        __  ______ ____</span><br><span class="line"> | __ ) _ __ _   _| |_ ___  \ \/ / ___/ ___|</span><br><span class="line"> |  _ \| &apos;__| | | | __/ _ \  \  /\___ \___ \</span><br><span class="line"> | |_) | |  | |_| | ||  __/  /  \ ___) |__) |</span><br><span class="line"> |____/|_|   \__,_|\__\___| /_/\_\____/____/</span><br><span class="line"></span><br><span class="line"> User:Gh0stkey</span><br><span class="line"> 注意:使用错误的有效载荷的定义</span><br><span class="line"> 字典可能给你积极性质</span><br><span class="line"> 更好地使用字典</span><br><span class="line"> 提供积极的结果。</span><br><span class="line"></span><br><span class="line">[?] 选择方法: [G]GET 或者 [P]Post (G/P):</span><br></pre></td></tr></table></figure>
+
+<p>下面它会询问我们一些配置。我们在选择方法时输入<code>G</code>，指定 URL 时输入<code>http://localhost/xss.php?xss</code>，这里一定要把参数暴露出来给它。然后字典位置输入<code>wordlist.txt</code>，大家也可以尝试其他字典。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[?] 选择方法: [G]GET 或者 [P]Post (G/P): G</span><br><span class="line">[?] 输入 URL:</span><br><span class="line">[?] &gt; http://localhost/xss.php?xss=</span><br><span class="line">[+] 检测 localhost 是可用的...</span><br><span class="line">[+] localhost is available! Good!</span><br><span class="line">[?] 输入字典的位置 (按Enter键使用默认 wordlist.txt)</span><br><span class="line">[?] &gt; wordlist.txt</span><br></pre></td></tr></table></figure>
+
+<p>之后程序会显示结果，告知我们该页面存在 XSS 漏洞。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[+] 从指定字典加载载荷.....</span><br><span class="line">[+] 25 攻击载荷加载...</span><br><span class="line">[+] Bruteforce开始:</span><br><span class="line">[+] 测试 &apos;xss&apos; 参数...</span><br><span class="line">[+] 0 / 25 攻击载荷注入...</span><br><span class="line">[!] Xss漏洞发现</span><br><span class="line">[!] 参数:       xss</span><br><span class="line">[!] Payload:    &lt;/script&gt;&quot;&gt;&lt;script&gt;prompt(1)&lt;/script&gt;</span><br><span class="line">[+] Bruteforce完成。</span><br><span class="line">[+] 1 参数是 容坠セ鞯?   xss.</span><br><span class="line">[+] 扫描结果 localhost:</span><br><span class="line">+----+------------+----------------+</span><br><span class="line">| Id | Parameters |     Status     |</span><br><span class="line">+----+------------+----------------+</span><br><span class="line">| 0  |    xss     |   Vulnerable   |</span><br><span class="line">+----+------------+----------------+</span><br><span class="line"></span><br><span class="line">[?] [E]结束进程\[A]程序初始化</span><br></pre></td></tr></table></figure>
+
+<p>之后它会让我们选择，结束进程的意思就是退出，初始化的意思就是重新开始。如果不需要扫描其他东西，我们输入<code>E</code>。</p>
+<p>如果是 POST 扫描，我们为 URL 输入<code>http://localhost/xss.php</code>，为数据输入<code>xss=</code>就可以了。</p>
+<p>由于一些 XSS 比如储存型 XSS 不便于自动化扫描，这个工具的作用仍然很有限，遇到扫不出来的漏洞很正常。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2019/12/04/工具篇 BruteXSS/">http://yoursite.com/2019/12/04/工具篇 BruteXSS/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY<strong>?</strong></strong></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/12/04/漏洞篇 越权/"></a>
+            
+            
+            <a class="next" rel="next" href="/2019/12/04/工具篇 Nmap/"></a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

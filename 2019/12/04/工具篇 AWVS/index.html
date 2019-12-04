@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Velpro_Q&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Velpro_Q&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title"></h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">December 4, 2019&nbsp;&nbsp;19:00:32</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="米斯特白帽培训讲义-工具篇-AWVS"><a href="#米斯特白帽培训讲义-工具篇-AWVS" class="headerlink" title="米斯特白帽培训讲义 工具篇 AWVS"></a>米斯特白帽培训讲义 工具篇 AWVS</h1><blockquote>
+<p>讲师：<a href="https://www.zhihu.com/people/gh0stkey/answers" target="_blank" rel="noopener">gh0stkey</a></p>
+</blockquote>
+<blockquote>
+<p>整理：<a href="https://github.com/" target="_blank" rel="noopener">飞龙</a></p>
+</blockquote>
+<blockquote>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><p>AWVS 即 Acunetix Web Vulnerability Scanner 是一个网站及服务器漏洞扫描软件。</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1faynwuq2u2j20s10j7q54.jpg" alt></p>
+<ul>
+<li>自动的客户端脚本分析器，允许对 Ajax 和 Web 2.0 应用程序进行安全性测试。</li>
+<li>业内最先进且深入的 SQL 注入和跨站脚本测试</li>
+<li>高级渗透测试工具，例如 HTTP Editor 和 HTTP Fuzzer</li>
+<li>可视化宏记录器帮助您轻松测试 web 表格和受密码保护的区域</li>
+<li>支持含有 CAPTHCA 的页面，单个开始指令和 Two Factor（双因素）验证机制</li>
+<li>丰富的报告功能，包括 VISA PCI 依从性报告</li>
+<li>高速的多线程扫描器轻松检索成千上万个页面</li>
+<li>智能爬行程序检测 web 服务器类型和应用程序语言</li>
+<li>Acunetix 检索并分析网站，包括 flash 内容、SOAP 和 AJAX</li>
+<li>端口扫描 web 服务器并对在服务器上运行的网络服务执行安全检查</li>
+</ul>
+<h2 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a>下载和安装</h2><p>演示中使用的是 AWVS 10 版本，请在<a href="http://www.freebuf.com/sectool/71091.html" target="_blank" rel="noopener">这里</a>下载。</p>
+<p>安装部分主要分为两个步骤：安装主程序和打破解补丁。这款工具是由吾爱破解亲自操刀来破解的。</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1faynwylc7xj20pw066q34.jpg" alt></p>
+<p>我们打开安装文件之后，依次点击“下一步”就可以了。</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1faynx2518zj20rt0kttaj.jpg" alt></p>
+<p>安装完毕之后，打开破解补丁，破解补丁是全自动的，等到出现这个界面，就说明破解完成了。</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1faynx59z0tj20j10e5mxr.jpg" alt></p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p><img src="http://ww2.sinaimg.cn/large/841aea59jw1faynx91hk7j20os0clmxn.jpg" alt></p>
+<p>首先，打开程序主界面：</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1faynxby5l2j20sv0jsacl.jpg" alt></p>
+<p>点击左上角的<code>Scan</code>按钮，会弹出一个窗口，我们将其中的<code>Website URL</code>改为百度的 URL。这里我们拿百度主页来演示。</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1faynxfl2oaj20st0jq0us.jpg" alt></p>
+<p>之后我们只需要连续点击下一步，跳过<code>Option</code>界面。我们可以看到<code>Target</code>界面为我们提供了一些信息，比如服务器版本。我们也可以按需选择服务器所使用的环境。</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1faynxis9oaj20o10irmyl.jpg" alt></p>
+<p>点击下一步之后，我们来到了<code>Login</code>界面，这里我们可以设置登录所需的凭证。我们这里先保留默认。</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1faynxneoa8j20nx0ivabo.jpg" alt></p>
+<p>再点击下一步，等待一下，然后就开始了。扫描完成之后，我们再来看主界面。</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1faynxva2gkj21c40qptci.jpg" alt></p>
+<p><code>Web Alerts</code>中会提示存在的漏洞。<code>Site Structure</code>中会显示站点结构。我们随便选择一个漏洞看一下。它提示了站点中有一个 CSRF 漏洞。</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1faynxyf2zoj216x0letbi.jpg" alt></p>
+<p>这里就有可能是个误报，虽然 AWVS 很强大，但是误报也是很常见的。大家以后碰到的时候无视它就好了。</p>
+<h2 id="登录后的扫描"><a href="#登录后的扫描" class="headerlink" title="登录后的扫描"></a>登录后的扫描</h2><p><img src="http://ww1.sinaimg.cn/large/841aea59jw1fayny2a5qwj20lt0ex0tf.jpg" alt></p>
+<p>就是在<code>Login</code>界面的<code>Form Authentication</code>分组框中输入所需的Cookie。我们点击旁边的“新建”按钮（一张纸的图标），在弹出来的窗口中登录网站，来创建登录凭证。</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1faynype4uqj20zn0pnwg0.jpg" alt></p>
+<p>登录完毕之后点击右下角的<code>Finish</code>，然后会弹出来一个文件选择框，保存文件即可。</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1faynyvhgyjj217h0qqn00.jpg" alt></p>
+<p>之后我们点击旁边的“打开”按钮（文件夹的图标），选择刚刚保存的文件，并点击<code>Next</code>。这样我们就能执行登录状态下的扫描了。</p>
+<h2 id="批量扫描"><a href="#批量扫描" class="headerlink" title="批量扫描"></a>批量扫描</h2><p>思路来自：<a href="http://zone.wooyun.org/content/20325" target="_blank" rel="noopener">http://zone.wooyun.org/content/20325</a>。</p>
+<p>利用 AWVS 会采集目标站点的外链的特点，达到批量扫描的效果。</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1faynz1ggxyj21220g0q5a.jpg" alt></p>
+<p>比如，我们可以创建一个 HTML 文件，里面包含要扫描的全部链接，比如我们要扫描谷歌、百度、优酷以及其他网站，我们就可以新建一个<code>4.html</code>，内容为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.google.com"</span>&gt;</span>test<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.baidu.com"</span>&gt;</span>test<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.youku.com"</span>&gt;</span>test<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>然后将这个页面在本地部署，假设，我们可以通过<code>http://localhost/subject/4.html</code>访问。然后将其填写到<code>Website URL</code>中。</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1faynz5lar8j20nw0ip75t.jpg" alt></p>
+<p>一直点击“下一步”，直到<code>Finish</code>界面，我们可以看到，我们指定的站点全部出现在下方的列表框中，我们把他们全部勾选。之后点击<code>Finish</code>按钮开始批量扫描。</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1faynzdo6m5j20o20ivabr.jpg" alt></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2019/12/04/工具篇 AWVS/">http://yoursite.com/2019/12/04/工具篇 AWVS/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY<strong>?</strong></strong></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/12/04/漏洞篇 逻辑漏洞/"></a>
+            
+            
+            <a class="next" rel="next" href="/2019/11/12/Misc2.编码与密码/"></a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

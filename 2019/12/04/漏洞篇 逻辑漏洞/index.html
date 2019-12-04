@@ -178,7 +178,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">November 12, 2019&nbsp;&nbsp;17:03:19</a>
+                        Date: <a href="#">December 4, 2019&nbsp;&nbsp;19:00:32</a>
                         </span>
                     
                     
@@ -187,8 +187,54 @@
         </header>
 
         <div class="post-content">
-            <hr>
-<h2 id="title-Misc2-编码与密码"><a href="#title-Misc2-编码与密码" class="headerlink" title="title:Misc2.编码与密码"></a>title:Misc2.编码与密码</h2><pre><code>https://bbs.zkaq.cn/t/4132.html</code></pre><p>本人在某安全社区写的文章</p>
+            <h1 id="米斯特白帽培训讲义-漏洞篇-逻辑漏洞"><a href="#米斯特白帽培训讲义-漏洞篇-逻辑漏洞" class="headerlink" title="米斯特白帽培训讲义 漏洞篇 逻辑漏洞"></a>米斯特白帽培训讲义 漏洞篇 逻辑漏洞</h1><blockquote>
+<p>讲师：<a href="https://www.zhihu.com/people/gh0stkey/answers" target="_blank" rel="noopener">gh0stkey</a></p>
+</blockquote>
+<blockquote>
+<p>整理：<a href="https://github.com/" target="_blank" rel="noopener">飞龙</a></p>
+</blockquote>
+<blockquote>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<h2 id="任意密码找回"><a href="#任意密码找回" class="headerlink" title="任意密码找回"></a>任意密码找回</h2><p>这是补天平台上的一个案例：</p>
+<p><a href="http://www.118114.cn/reg.jsp" target="_blank" rel="noopener">http://www.118114.cn/reg.jsp</a></p>
+<p>首先注册一个账号，然后找回。</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1fb42autmgpj20dw05pq2v.jpg" alt></p>
+<p>我们收到的验证码是六位数。如果网站没有设置频率限制，或者最大尝试次数限制的话，那我们自然就会想到可以爆破它。</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1fb42axj9tuj20ff0mc0t4.jpg" alt></p>
+<p>然后抓提交手机验证码的封包，我们可以看到没有任何图片验证码：</p>
+<p><img src="http://ww2.sinaimg.cn/large/841aea59jw1fb42b0pjpzj20nf08iaam.jpg" alt></p>
+<p>发送到 Burp 的 Intruder：</p>
+<p><img src="http://ww2.sinaimg.cn/large/841aea59jw1fb42b7hh53j20ed09p74h.jpg" alt></p>
+<p>只给<code>checkPhoneCode</code>添加标志，然后将字典类型设置为数字，范围为<code>000000 ~ 999999</code>。然后爆破，结束后我们发现了一个与众不同的封包。</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1fb42ijvea1j208q04vgli.jpg" alt></p>
+<p>将里面的验证码提交之后便可重置密码。</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1fb42ba6wpgj20ng0cumxf.jpg" alt></p>
+<h2 id="任意手机号注册"><a href="#任意手机号注册" class="headerlink" title="任意手机号注册"></a>任意手机号注册</h2><p>这是某个网站的注册页面：</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1fb42bozb1lj20fz0draa4.jpg" alt></p>
+<p>我们模拟注册一下，发现手机验证码是四位：</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1fb42ccsbb7j20g904ljrc.jpg" alt></p>
+<p>然后抓注册的封包：</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1fb42c0v90yj20nc05emxc.jpg" alt></p>
+<p>然后将字典设置为四位数字 0000 ~ 9999，进行爆破：</p>
+<p><img src="http://ww2.sinaimg.cn/large/841aea59jw1fb42buvzlvj20il07nweq.jpg" alt></p>
+<p>Get it！</p>
+<h2 id="任意邮箱激活"><a href="#任意邮箱激活" class="headerlink" title="任意邮箱激活"></a>任意邮箱激活</h2><p>目标是<code>www.vobao.com</code>。</p>
+<p>首先注册，然后直接退出找回，我们看到它是邮箱验证。</p>
+<p><img src="http://ww2.sinaimg.cn/large/841aea59jw1fb42cmphhuj20n50dx750.jpg" alt></p>
+<p>然后查看验证邮件：</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1fb42crq27lj20nc066jrr.jpg" alt></p>
+<p>我们发现其中有一个<code>vstr</code>，它跟找回密码页面中的某个 URL 是一样的，也就是一个标志。</p>
+<p><img src="http://ww2.sinaimg.cn/large/841aea59jw1fb42d74r87j20nj02i749.jpg" alt></p>
+<p>那么<code>vud</code>就应该起到类似验证码的作用。如果我们不填写<code>vud</code>直接访问，显示无效。那么就能确定它是验证码了。</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1fb42dv96oyj20jo0aqaad.jpg" alt></p>
+<p>这个<code>vud</code>看起来像是个md5，但是实际上是随机码。那么我们尝试拿另一个邮箱注册找回：</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1fb42eeqqvwj20n7032jrg.jpg" alt></p>
+<p>可以看到<code>vstr</code>是不一样的，<code>vud</code>当然也不一样。但是如果我们邮箱2的<code>vud</code>拼接到邮箱1的<code>vstr</code>上呢？由于邮箱1的<code>vstr</code>是已知的，即使我们访问不了邮箱1，也可以通过找回密码页面的 URL 来获得，那么我们就可以构造出：</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1fb42g1d0o4j20jm02t74b.jpg" alt></p>
+<p>提交后就成功了。</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1fb42g3wxn9j20nf0axq3j.jpg" alt></p>
+<p>假设邮箱1是别人的邮箱，我们不能访问其内容，但我们能够控制邮箱2，那我们就能拿邮箱2来重置邮箱1的账户。可以看到，这个漏洞的主要成因就是未对不同用户的验证码进行区分。其中<code>vstr</code>起到用户标志的作用，<code>vud</code>起到邮箱验证码的作用。</p>
 
         </div>
 
@@ -203,7 +249,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://yoursite.com/2019/11/12/Misc2.编码与密码/">http://yoursite.com/2019/11/12/Misc2.编码与密码/</a></span>
+                        <span><a href="http://yoursite.com/2019/12/04/漏洞篇 逻辑漏洞/">http://yoursite.com/2019/12/04/漏洞篇 逻辑漏洞/</a></span>
                     </p>
                 
                 
@@ -236,10 +282,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/12/04/工具篇 AWVS/"></a>
+                <a class="prev" rel="prev" href="/2019/12/04/漏洞篇 第三方风险/"></a>
             
             
-            <a class="next" rel="next" href="/2019/11/12/2019网络空间竞赛Misc1.编码/">2019网络空间竞赛Misc1.编码</a>
+            <a class="next" rel="next" href="/2019/12/04/工具篇 AWVS/"></a>
             
         </section>
 

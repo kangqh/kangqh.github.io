@@ -178,7 +178,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">November 12, 2019&nbsp;&nbsp;17:03:19</a>
+                        Date: <a href="#">December 4, 2019&nbsp;&nbsp;19:00:32</a>
                         </span>
                     
                     
@@ -187,8 +187,24 @@
         </header>
 
         <div class="post-content">
-            <hr>
-<h2 id="title-Misc2-编码与密码"><a href="#title-Misc2-编码与密码" class="headerlink" title="title:Misc2.编码与密码"></a>title:Misc2.编码与密码</h2><pre><code>https://bbs.zkaq.cn/t/4132.html</code></pre><p>本人在某安全社区写的文章</p>
+            <h1 id="米斯特白帽培训讲义-实战篇-迅雷-CMS"><a href="#米斯特白帽培训讲义-实战篇-迅雷-CMS" class="headerlink" title="米斯特白帽培训讲义 实战篇 迅雷 CMS"></a>米斯特白帽培训讲义 实战篇 迅雷 CMS</h1><blockquote>
+<p>讲师：<a href="https://www.zhihu.com/people/gh0stkey/answers" target="_blank" rel="noopener">gh0stkey</a></p>
+</blockquote>
+<blockquote>
+<p>整理：<a href="https://github.com/" target="_blank" rel="noopener">飞龙</a></p>
+</blockquote>
+<blockquote>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<h2 id="站点搜索"><a href="#站点搜索" class="headerlink" title="站点搜索"></a>站点搜索</h2><p>关键词：<code>intext:&quot;技术支持:银川迅雷网络公司&quot;</code></p>
+<p>另外这个 CMS 是闭源的，没有找到源码。</p>
+<h2 id="Cookie-伪造"><a href="#Cookie-伪造" class="headerlink" title="Cookie 伪造"></a>Cookie 伪造</h2><p>起因是这样，我们随便找了一个网站，访问后台登录页面（<code>/admin/login.asp</code>），然后使用弱密码<code>admin:admin</code>进了后台（<code>/admin/index.asp</code>），发现 Cookie 有这样一个东西：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-67074c50fcd99f01.jpg" alt></p>
+<p>我们可以看到，用户名称和 ID 是明文保存的。我们猜测，程序根据 Cookie 中的值来判断当前登录用户。于是我们把其中一个删掉，结果退出登录。再次访问后台时返回到了登录页面。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-a3bcb670d607ed58.jpg" alt></p>
+<p>这就说明它的确使用 Cookie 中的值来判断。我们再进行试验，将 Cookie 的两个值重新设置，之后直接访问<code>/admin/index.asp</code>：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-626d398d4a65e851.jpg" alt></p>
+<p>成功进入后台。</p>
 
         </div>
 
@@ -203,7 +219,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://yoursite.com/2019/11/12/Misc2.编码与密码/">http://yoursite.com/2019/11/12/Misc2.编码与密码/</a></span>
+                        <span><a href="http://yoursite.com/2019/12/04/实战篇 迅雷 CMS/">http://yoursite.com/2019/12/04/实战篇 迅雷 CMS/</a></span>
                     </p>
                 
                 
@@ -236,10 +252,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/12/04/工具篇 AWVS/"></a>
+                <a class="prev" rel="prev" href="/2019/12/04/实战篇 捷达系统/"></a>
             
             
-            <a class="next" rel="next" href="/2019/11/12/2019网络空间竞赛Misc1.编码/">2019网络空间竞赛Misc1.编码</a>
+            <a class="next" rel="next" href="/2019/12/04/漏洞篇 中间件/"></a>
             
         </section>
 

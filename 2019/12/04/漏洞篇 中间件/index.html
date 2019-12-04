@@ -178,7 +178,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">November 12, 2019&nbsp;&nbsp;17:03:19</a>
+                        Date: <a href="#">December 4, 2019&nbsp;&nbsp;19:00:32</a>
                         </span>
                     
                     
@@ -187,8 +187,80 @@
         </header>
 
         <div class="post-content">
-            <hr>
-<h2 id="title-Misc2-编码与密码"><a href="#title-Misc2-编码与密码" class="headerlink" title="title:Misc2.编码与密码"></a>title:Misc2.编码与密码</h2><pre><code>https://bbs.zkaq.cn/t/4132.html</code></pre><p>本人在某安全社区写的文章</p>
+            <h1 id="米斯特白帽培训讲义-漏洞篇-Web-中间件"><a href="#米斯特白帽培训讲义-漏洞篇-Web-中间件" class="headerlink" title="米斯特白帽培训讲义 漏洞篇 Web 中间件"></a>米斯特白帽培训讲义 漏洞篇 Web 中间件</h1><blockquote>
+<p>讲师：<a href="https://www.zhihu.com/people/gh0stkey/answers" target="_blank" rel="noopener">gh0stkey</a></p>
+</blockquote>
+<blockquote>
+<p>整理：<a href="https://github.com/" target="_blank" rel="noopener">飞龙</a></p>
+</blockquote>
+<blockquote>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>中间件是一种独立的系统软件或服务程序，分布式应用软件借助这种软件在不同的技术之间共享资源。中间件位于客户机/ 服务器的操作系统之上，管理计算机资源和网络通讯。是连接两个独立应用程序或独立系统的软件。相连接的系统，即使它们具有不同的接口，但通过中间件相互之间仍能交换信息。执行中间件的一个关键途径是信息传递。通过中间件，应用程序可以工作于多平台或OS环境。（百度百科）</p>
+<h2 id="常见的中间件"><a href="#常见的中间件" class="headerlink" title="常见的中间件"></a>常见的中间件</h2><p>这些中间件是 Java Web 的容器。都可以上传 war 包。打包命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar -cvf &lt;war&gt; &lt;jsp或目录&gt;</span><br></pre></td></tr></table></figure>
+
+<p>比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jar -cvf test.war test.jsp</span><br><span class="line">jar -cvf test.war D:\Project\Test</span><br></pre></td></tr></table></figure>
+
+<p>上传之后访问：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/&lt;包名&gt;/&lt;jsp文件名或路由名&gt;</span><br></pre></td></tr></table></figure>
+
+<p>比如包名是<code>test</code>，文件名是<code>test.jsp</code>，那么访问<code>/test/test.jsp</code>。如果存在一个 Servlet 映射到了<code>/test</code>，那么访问<code>/test/test</code>。</p>
+<h3 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h3><p><img src="http://upload-images.jianshu.io/upload_images/118142-dbf14be915ddbdba.png" alt></p>
+<h3 id="Weblogic"><a href="#Weblogic" class="headerlink" title="Weblogic"></a>Weblogic</h3><p><img src="http://upload-images.jianshu.io/upload_images/118142-5e7a7be267975351.png" alt></p>
+<h3 id="JBoss"><a href="#JBoss" class="headerlink" title="JBoss"></a>JBoss</h3><p><img src="http://upload-images.jianshu.io/upload_images/118142-dc3a1552fe4322e5.png" alt></p>
+<h3 id="JOnAS"><a href="#JOnAS" class="headerlink" title="JOnAS"></a>JOnAS</h3><p><img src="http://upload-images.jianshu.io/upload_images/118142-b7bd2200300423fa.png" alt></p>
+<h3 id="WebSphere"><a href="#WebSphere" class="headerlink" title="WebSphere"></a>WebSphere</h3><p><img src="http://upload-images.jianshu.io/upload_images/118142-bf2fb9d95add1013.png" alt></p>
+<h2 id="常见漏洞"><a href="#常见漏洞" class="headerlink" title="常见漏洞"></a>常见漏洞</h2><ul>
+<li>弱口令</li>
+<li>java反序列</li>
+<li>未授权</li>
+<li>代码执行</li>
+</ul>
+<h2 id="常见弱口令"><a href="#常见弱口令" class="headerlink" title="常见弱口令"></a>常见弱口令</h2><h3 id="Tomcat-1"><a href="#Tomcat-1" class="headerlink" title="Tomcat"></a>Tomcat</h3><ul>
+<li><code>tomcat:tomcat</code></li>
+<li>…</li>
+</ul>
+<h3 id="Weblogic-1"><a href="#Weblogic-1" class="headerlink" title="Weblogic"></a>Weblogic</h3><ul>
+<li><code>weblogic:weblogic</code></li>
+<li><code>system:system</code></li>
+<li><code>portaladmin:portaladmin</code></li>
+<li><code>guest:guest</code></li>
+<li><code>weblogic:admin123</code></li>
+<li><code>weblogic:weblogic123</code></li>
+<li>…</li>
+</ul>
+<h3 id="JBoss-1"><a href="#JBoss-1" class="headerlink" title="JBoss"></a>JBoss</h3><ul>
+<li><code>jboss:jboss</code></li>
+<li><code>admin:admin</code></li>
+<li>…</li>
+</ul>
+<h3 id="JOnAS-1"><a href="#JOnAS-1" class="headerlink" title="JOnAS"></a>JOnAS</h3><ul>
+<li><code>jadmin:jonas</code></li>
+<li><code>tomcat:tomcat</code></li>
+<li><code>jonas:jonas</code></li>
+<li>…</li>
+</ul>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><h3 id="默认端口"><a href="#默认端口" class="headerlink" title="默认端口"></a>默认端口</h3><ul>
+<li>Tomcat：8080（Web、Console）、…</li>
+<li>WebLogic：7001、7002（Web、Console）、…</li>
+<li>JBoss：8080（Web）、9990（Console）、…</li>
+<li>WebSphere：9080、9443（Web）、9060、9043（Console）、…</li>
+<li>JOnAS：9000、…</li>
+</ul>
+<p>使用 oshadan 或者<code>nmap -p</code>扫描。</p>
+<h3 id="默认路径"><a href="#默认路径" class="headerlink" title="默认路径"></a>默认路径</h3><ul>
+<li>Tomcat：<code>http://&lt;host&gt;:8080/manager/html</code></li>
+<li>WebLogic：<code>http://&lt;host&gt;:7001/console/</code></li>
+<li>JOnAS：<code>http://&lt;host&gt;:9000/jonasAdmin/</code></li>
+<li>JBoss：<code>http://&lt;host&gt;:9990</code></li>
+<li>WebSphere：<code>http://&lt;host&gt;:7043/ibm/console/logon.jsp</code></li>
+</ul>
+<p>使用<code>inurl:</code>来寻找。</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><ul>
+<li><a href="http://www.2cto.com/article/201306/221832.html" target="_blank" rel="noopener">常见 web 中间件拿 shell</a></li>
+</ul>
 
         </div>
 
@@ -203,7 +275,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://yoursite.com/2019/11/12/Misc2.编码与密码/">http://yoursite.com/2019/11/12/Misc2.编码与密码/</a></span>
+                        <span><a href="http://yoursite.com/2019/12/04/漏洞篇 中间件/">http://yoursite.com/2019/12/04/漏洞篇 中间件/</a></span>
                     </p>
                 
                 
@@ -236,10 +308,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/12/04/工具篇 AWVS/"></a>
+                <a class="prev" rel="prev" href="/2019/12/04/实战篇 迅雷 CMS/"></a>
             
             
-            <a class="next" rel="next" href="/2019/11/12/2019网络空间竞赛Misc1.编码/">2019网络空间竞赛Misc1.编码</a>
+            <a class="next" rel="next" href="/2019/12/04/漏洞篇 提权/"></a>
             
         </section>
 

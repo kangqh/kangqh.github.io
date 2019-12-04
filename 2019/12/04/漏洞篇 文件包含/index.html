@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Velpro_Q&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Velpro_Q&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title"></h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">December 4, 2019&nbsp;&nbsp;19:00:32</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="米斯特白帽培训讲义-漏洞篇-文件包含"><a href="#米斯特白帽培训讲义-漏洞篇-文件包含" class="headerlink" title="米斯特白帽培训讲义 漏洞篇 文件包含"></a>米斯特白帽培训讲义 漏洞篇 文件包含</h1><blockquote>
+<p>讲师：<a href="https://www.zhihu.com/people/gh0stkey/answers" target="_blank" rel="noopener">gh0stkey</a></p>
+</blockquote>
+<blockquote>
+<p>整理：<a href="https://github.com/" target="_blank" rel="noopener">飞龙</a></p>
+</blockquote>
+<blockquote>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>文件包含就是将一个文件包含到自己的文件中执行。它可分为本地包含和远程包含，本地包含即包含本地磁盘上的文件，文件名称是相对路径或绝对路径，远程包含即包含互联网上的文件，文件名称是 URL。</p>
+<h2 id="本地包含"><a href="#本地包含" class="headerlink" title="本地包含"></a>本地包含</h2><p>比如我们有一个<code>test.txt</code>文件，仅仅调用<code>phpinfo</code>来测试：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> phpinfo();<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后我们在相同目录下放置一个<code>fileinclude.php</code>，如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$file=@$_GET[<span class="string">'file'</span>];</span><br><span class="line"><span class="keyword">if</span>($file)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;center&gt;File:"</span>.$file.<span class="string">"&lt;br/&gt;Result:&lt;/center&gt;"</span>;</span><br><span class="line">    <span class="keyword">include</span> $file;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一行代码获取 URL 参数<code>file</code>的内容。2 ~ 4 行首先判断<code>$file</code>是否为空，若不为空，输出其内容，并将其作为文件名称包含。</p>
+<p>我们将其部署在<code>localhost</code>下，之后访问<code>http://localhost/fileinclude.php?file=test.txt</code>，会看到<code>phpinfo</code>的输出。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-1a3322f9c2f5774e.jpg" alt></p>
+<p>我这里之所以用<code>txt</code>文件，就是想说明这个漏洞是无视扩展名的。跟文件上传漏洞不一样，文件上传漏洞中如果我们上传的文件不是<code>.php</code>就执行不了（当然也有一些绕过手段），但是文件包含漏洞中的扩展名是任意的，这里我们上传了<code>.txt</code>，证实有效，那么这个<code>.jpg</code>也是有效的。</p>
+<p>要注意，如果被包含的文件里面没有 PHP 标签，那么就当成 HTML 内容如实显示出来。就比如我们放入之前的<code>top100.txt</code>：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-086434212534c816.jpg" alt></p>
+<h2 id="远程包含"><a href="#远程包含" class="headerlink" title="远程包含"></a>远程包含</h2><p>为了演示远程包含，我们需要将 PHP 配置文件中的<code>allow_url_include</code>设置为<code>on</code>，之后重启 PHP。PHP 配置文件的位置可以在<code>phpinfo</code>的输出中寻找，我们搜索<code>ini</code>即可：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-9148e3fa1cf3e7c5.jpg" alt></p>
+<p>我这里是<code>C:\php-5.5.10\php.ini</code>，你那里可能有些差别。我们打开它，搜索<code>allow_url_include</code>，会看到下面这些行，如果是<code>Off</code>把它改成<code>On</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">; Whether to allow include/require to open URLs (like http:// or ftp://) as files.</span><br><span class="line">; http://php.net/allow-url-include</span><br><span class="line">allow_url_include = On</span><br></pre></td></tr></table></figure>
+
+<p>我们需要将<code>file</code>参数改为<code>http://localhost/text.txt</code>，可以看到相同结果。</p>
+<h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><h3 id="00-截断"><a href="#00-截断" class="headerlink" title="00 截断"></a>00 截断</h3><p>有些程序会给被包含内容加一些后缀，比如如果<code>fileinclude.php</code>是这样。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$file=@$_GET[<span class="string">'file'</span>];</span><br><span class="line"><span class="keyword">if</span>($file)&#123;</span><br><span class="line">    $file .= <span class="string">'.php'</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;center&gt;File:"</span>.$file.<span class="string">"&lt;br/&gt;Result:&lt;/center&gt;"</span>;</span><br><span class="line">    <span class="keyword">include</span> $file;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>它后面加了个<code>.php</code>，也就是说，如果我们传入<code>file=test</code>则是正常的，传入<code>file=test.txt</code>，或变成<code>test.txt.php</code>，从而包含失败。那么我们应该怎么办呢？</p>
+<p>如果 PHP 版本小于 5.3，并且<code>magic_quotes_gpc</code>已取消，我们就可以使用<code>%00</code>来截断。我们传入<code>file=test.txt%00</code>，就可以实现包含。</p>
+<h3 id="路径遍历"><a href="#路径遍历" class="headerlink" title="路径遍历"></a>路径遍历</h3><ul>
+<li><code>./</code>（或省略）：当前目录</li>
+<li><code>../</code>：上级目录</li>
+<li><code>/</code>：根目录（Windows 中为当前盘内的根目录）</li>
+<li><code>~/</code>：用户的主目录</li>
+</ul>
+<p>例如，在 Linux 下，我们就可以使用<code>file=/etc/passwd</code>来读取系统密码。</p>
+<p>这里是一些常见的日志文件位置：</p>
+<ul>
+<li>apache+Linux日志默认路径<ul>
+<li><code>/etc/httpd/logs/access.log</code></li>
+<li><code>/var/log/httpd/access.log</code></li>
+</ul>
+</li>
+<li>apache+win2003日志默认路径<ul>
+<li><code>D:\xampp\apache\logs\access.log</code></li>
+<li><code>D:\xampp\apache\logs\error.log</code></li>
+</ul>
+</li>
+<li>IIS6.0+win2003默认日志文件<ul>
+<li><code>C:\WINDOWS\system32\Lognames</code></li>
+</ul>
+</li>
+<li>IIS7.0+win2003 默认日志文件<ul>
+<li><code>%SystemDrive%\inetpub\logs\Lognames</code></li>
+</ul>
+</li>
+<li>nginx 日志文件<ul>
+<li><code>&lt;安装目录&gt;/logs</code></li>
+<li>如果安装目录为<code>/usr/local/nginx</code>，则为<code>/usr/local/nginx/logs</code></li>
+</ul>
+</li>
+<li>apache+linux 默认配置文件<ul>
+<li><code>/etc/httpd/conf/httpd.conf</code></li>
+<li><code>/etc/init.d/httpd</code></li>
+</ul>
+</li>
+<li>IIS6.0+win2003 配置文件<ul>
+<li><code>C:/Windows/system32/inetsrv/metabase.xml</code></li>
+</ul>
+</li>
+<li>IIS7.0+WIN 配置文件<ul>
+<li><code>C:\Windows\System32\inetsrv\config\applicationHost.config</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="PHP-伪协议"><a href="#PHP-伪协议" class="headerlink" title="PHP 伪协议"></a>PHP 伪协议</h3><p>允许远程包含的情况下，我们可以使用<code>php://</code>伪协议，比如<code>php://filter/resource=test.txt</code>可以读取相同文件。</p>
+<p>我们还可以加一个过滤器让它显示为 BASE64 编码格式，<code>php://filter/read=convert.base64-encode/resource=test.txt</code>。如果我们要获取的文件里面有不可打印的字符，或者我们想要获取代码的内容，可以用这种方式来获取，之后解码即可。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-1e6b92a7b9aaafb0.jpg" alt></p>
+<p><code>php://input</code>可以读取原始的 HTTP 正文内容。如果我们将<code>file</code>设置为<code>php://input</code>，并且在 HTTP 正文中传入 PHP 代码，例如<code>&lt;?php phpinfo();?&gt;</code>，即可执行代码。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-427fcb5433711e67.png" alt></p>
+<h3 id="Data-URI"><a href="#Data-URI" class="headerlink" title="Data URI"></a>Data URI</h3><p>Data URI 的格式是<code>data://text/plain;base64,&lt;base64&gt;</code>，同样需要远程包含。我们首先把一句话用 base64 编码，得到<code>PD9waHAgcGhwaW5mbygpOz8+</code>，然后将<code>file</code>设置为<code>data://text/plain;base64,PD9waHAgcGhwaW5mbygpOz8%2b</code>（注意URL编码），即可执行代码。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-862575e1b772aa41.jpg" alt></p>
+<h2 id="如何挖掘"><a href="#如何挖掘" class="headerlink" title="如何挖掘"></a>如何挖掘</h2><p>首先对 URL 进行分析，看看是否和文件相关，比如<code>www.test.com/xxx.php?file=yyy</code>。带有文件相关的敏感名称都可以进行挖掘。</p>
+<h2 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h2><p>当我们发现了本地包含漏洞时，首先寻找上传点，比如用户头像上传功能。然后我们可以构造一个纯文本文件，内容为<code>&lt;?php phpinfo();?&gt;</code>，并将其命名为<code>xxx.jpg</code>。</p>
+<p>之后我们就可以把<code>xxx.jpg</code>上传上去，并通过应用得到它的位置，假设是<code>/upload/xxx.jpg</code>，然后我们就可以把<code>file</code>参数的值改为它。以前面的代码为例，URL 是<code>http://localhost/fileinclude.php?file=/upload/xxx.jpg</code>。</p>
+<p>如果我们把<code>xxx.jpg</code>的内容改为菜刀的一句话，那就可以用菜刀连接。</p>
+<p><img src="http://ww2.sinaimg.cn/large/841aea59jw1faturiysztj20sg0fjt9e.jpg" alt></p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1faturmgu73j20sj0fk3zg.jpg" alt></p>
+<p>再说一下远程包含，远程包含的条件比较苛刻，目标网站需要把<code>allow_url_open</code>给打开。所以有本地包含不一定有远程包含，有远程包含一定就有本地包含。但是，远程包含的利用相对简单，只要将代码上传到自己博客，或者任何能通过 URL 访问到的地方就可以了。后续步骤是一样的。</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><ul>
+<li><p><a href="http://www.freebuf.com/articles/web/119150.html" target="_blank" rel="noopener">新手指南：DVWA-1.9全级别教程之File Inclusion</a></p>
+</li>
+<li><p><a href="http://php.net/manual/zh/wrappers.php.php" target="_blank" rel="noopener">PHP 伪协议</a></p>
+</li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2019/12/04/漏洞篇 文件包含/">http://yoursite.com/2019/12/04/漏洞篇 文件包含/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY<strong>?</strong></strong></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/12/04/漏洞篇 文件上传/"></a>
+            
+            
+            <a class="next" rel="next" href="/2019/12/04/漏洞篇 越权/"></a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

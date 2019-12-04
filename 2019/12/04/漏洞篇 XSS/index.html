@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Velpro_Q&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Velpro_Q&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title"></h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">December 4, 2019&nbsp;&nbsp;19:00:32</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="米斯特白帽培训讲义-漏洞篇-XSS"><a href="#米斯特白帽培训讲义-漏洞篇-XSS" class="headerlink" title="米斯特白帽培训讲义 漏洞篇 XSS"></a>米斯特白帽培训讲义 漏洞篇 XSS</h1><blockquote>
+<p>讲师：<a href="https://www.zhihu.com/people/gh0stkey/answers" target="_blank" rel="noopener">gh0stkey</a></p>
+</blockquote>
+<blockquote>
+<p>整理：<a href="https://github.com/" target="_blank" rel="noopener">飞龙</a></p>
+</blockquote>
+<blockquote>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<p>跨站脚本攻击（Cross Site Scripting），为不和层叠样式表（Cascading Style Sheets，CSS）的缩写混淆，故将跨站脚本攻击缩写为 XSS 。恶意攻击者往 Web 页面里插入恶意 JavaScript 代码，当用户浏览器该页之时，嵌入 Web 页面里的代码会被执行，从而达到恶意攻击用户的目的。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-d91de274c3a530ee.jpg" alt></p>
+<h2 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h2><p>Payload 的中文含义是有效载荷，在 XSS 中指代攻击代码或攻击语句。</p>
+<p>常见的 Payload 有：</p>
+<ul>
+<li>正常弹窗<ul>
+<li><code>&lt;script&gt;alert(1)&lt;/script&gt;</code></li>
+<li><code>&lt;img src=0 onerror=alert(1)&gt;</code></li>
+</ul>
+</li>
+<li>弹出网站 Cookie<ul>
+<li><code>&lt;script&gt;alert(document.cookie)&lt;/script&gt;</code></li>
+<li><code>&lt;img src=0 onerror=alert(document.cookie)&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>总共有三种</p>
+<ul>
+<li><p>反射型：Payload 经过后端，不经过数据库</p>
+</li>
+<li><p>存储型：Payload 经过后端，经过数据库</p>
+</li>
+<li><p>DOM：Payload 不经过后端</p>
+</li>
+</ul>
+<h2 id="原理：反射型"><a href="#原理：反射型" class="headerlink" title="原理：反射型"></a>原理：反射型</h2><p>非持久化，需要欺骗用户点击链接才能触发 XSS 代码（数据库中没有这样的页面和内容）。Payload 一般存在于 URL 或者 HTTP 正文中，需要构造页面，或者构造 URL。</p>
+<p>将这段代码保存为<code>xss.php</code>。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header(<span class="string">'X-XSS-Protection: 0'</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">&lt;p&gt;反射型 XSS 演示&lt;/p&gt;</span><br><span class="line">&lt;form action=<span class="string">""</span> method=<span class="string">"get"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"xss"</span>/&gt;</span><br><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"test"</span>/&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$xss = @$_GET[<span class="string">'xss'</span>];</span><br><span class="line"><span class="keyword">if</span>($xss!==<span class="keyword">null</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> $xss;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们看到，这段代码中首先包含一个表单，用于向页面自己发送 GET 请求，带一个名为<code>xss</code>的参数。 然后 PHP 会读取该参数，如果不为空，则直接打印出来，我们看到这里不存在任何过滤。也就是说，如果<code>xss</code>中存在 HTML 结构性的内容，打印之后会直接解释为 HTML 元素。</p>
+<p>我们部署好这个文件，访问<code>http://localhost/xss.php</code>，如图：</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1faxil77wmkj20m906y74m.jpg" alt></p>
+<p>我们直接输入一个 HTML 代码，比如<code>&lt;script&gt;alert(1)&lt;/script&gt;</code>，之后点击<code>test</code>：</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1faxilg2ftoj213s0nbwfm.jpg" alt></p>
+<p>我们可以看到弹窗，也就是我们输入的 HTML 代码被执行了。</p>
+<p>之后我们查看元素，这表明，我们输出的内容直接插入到了页面中，解释为<code>&lt;script&gt;</code>标签。</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1faxillhzadj20v906sq3d.jpg" alt></p>
+<p>我们可以自定义弹窗中的内容来利用 XSS，比如改成<code>alert(document.cookie)</code>。</p>
+<p>这个例子中 URL 为<code>http://localhost/xss.php?xss=%3Cscript%3Ealert%281%29%3C%2Fscript%3E</code>，这个 URL 容易引起怀疑，可以使用短网址工具缩短后发送给受害者。</p>
+<p>从上面的例子中，我们可以看出，反射型 XSS 的数据流向是：浏览器 -&gt; 后端 -&gt; 浏览器。</p>
+<h2 id="原理：存储型"><a href="#原理：存储型" class="headerlink" title="原理：存储型"></a>原理：存储型</h2><p>持久化，代码储存在数据库中。如在个人信息或发表文章等地方，假如代码，如果没有过滤或过滤不严，那么这些代码将储存到数据库中，用户访问该页面的时候出发代码执行。这种 XSS 比较危险，容易造成蠕虫，盗窃 Cookie 等。</p>
+<p>这里我们把<code>xss.php</code>内容改为（同时数据库中需要配置相应的表）：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header(<span class="string">'X-XSS-Protection: 0'</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">&lt;p&gt;存储型 XSS 演示&lt;/p&gt;</span><br><span class="line">&lt;form action=<span class="string">""</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"xss"</span>/&gt;</span><br><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"test"</span>/&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$xss=@$_POST[<span class="string">'xss'</span>];</span><br><span class="line">mysql_connect(<span class="string">"localhost"</span>,<span class="string">"root"</span>,<span class="string">"root"</span>);</span><br><span class="line">mysql_select_db(<span class="string">"xss"</span>);</span><br><span class="line"><span class="keyword">if</span>($xss!==<span class="keyword">null</span>)&#123;</span><br><span class="line">    $sql=<span class="string">"insert into test(id,payload) values('1',$xss)"</span>;</span><br><span class="line">    $result=mysql_query($sql);</span><br><span class="line">    <span class="keyword">echo</span> $result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，用户输入的内容还是没有过滤，但是不直接显示在页面中，而是插入到了数据库。</p>
+<p>我们新建<code>res.php</code>，内容为：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql_connect(<span class="string">"localhost"</span>,<span class="string">"root"</span>,<span class="string">"root"</span>);</span><br><span class="line">mysql_select_db(<span class="string">"xss"</span>);</span><br><span class="line">$sql=<span class="string">"select payload from test where id=1"</span>;</span><br><span class="line">$result=mysql_query($sql);</span><br><span class="line"><span class="keyword">while</span>($row=mysql_fetch_array($result))&#123;</span><br><span class="line">    <span class="keyword">echo</span> $row[<span class="string">'payload'</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该代码从数据库读取了之前插入的内容，并将其显示出来。</p>
+<p>我们部署之后首先查看<code>test</code>数据库，确认它是空的：</p>
+<p><img src="http://ww2.sinaimg.cn/large/841aea59jw1faxilwsv6bj213x0n9q5c.jpg" alt></p>
+<p>然后访问<code>xss.php</code>，像之前一样输入 HTML 代码并点击<code>test</code>，如下：</p>
+<p><img src="http://ww2.sinaimg.cn/large/841aea59jw1faxim219m0j20ma073q3c.jpg" alt></p>
+<p>点击之后却发现没有任何动静，但事实上，我们的数据已经插入到了数据库中。</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1faxim4y27jj20xv0i4gn1.jpg" alt></p>
+<p>那么，当我们访问<code>res.php</code>查询这个值的时候，代码就会被执行。</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1faxim9t2myj213z0ndt9u.jpg" alt></p>
+<p>所以说，存储型 XSS 的执行位置通常不同于输入位置。我们可以看出，存储行 XSS 的数据流向是：浏览器 -&gt; 后端 -&gt; 数据库 -&gt; 后端 -&gt; 浏览器。</p>
+<h2 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h2><p>我们可能需要通过 XSS 来获得用户 Cookie 或其他有用信息，利用平台负责接收并保存这些信息。另外，利用平台能够托管利用脚本，于是我们可以向页面只注入一个脚本链接，使长度极大缩短。</p>
+<p>这里的 XSS 利用平台使用 xsser.me，大家可以自行下载和搭建。</p>
+<ul>
+<li>下载：<a href="http://download.csdn.net/detail/gzliu_hit/5606811" target="_blank" rel="noopener">http://download.csdn.net/detail/gzliu_hit/5606811</a></li>
+<li>搭建：<a href="http://blog.csdn.net/god_7z1/article/details/47234989" target="_blank" rel="noopener">http://blog.csdn.net/god_7z1/article/details/47234989</a></li>
+</ul>
+<p>首先访问主页，你会看到一个登录页面，输入用户名和密码之后点击“登录”：</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1fb3yxb3dnnj20s30b0weo.jpg" alt></p>
+<p>成功之后会显示主界面，左边是模块列表，右边是项目列表：</p>
+<p><img src="http://ww2.sinaimg.cn/large/841aea59jw1fb3yxe64umj20rh0bbmxp.jpg" alt></p>
+<p>我们点击左边“我的项目”旁边的“创建”按钮：</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1fb3yxn90ygj20nf0f3dfx.jpg" alt></p>
+<p>名称和描述可以随便取，不影响使用。输入时候点击“下一步”按钮。之后会出现“配置代码”界面：</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1fb3yxpzws8j20l30htaac.jpg" alt></p>
+<p>我们只选择默认模块，把它展开之后，我们可以看到它的作用是向平台发送一个请求，来收集用户的各种信息。之后点击“下一步”。</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1fb3yxv7av7j20jj06u3z7.jpg" alt></p>
+<p>然后我们会在首页看到我们的新项目，点击这个项目：</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1fb3yy1gjxej20rd04pdg3.jpg" alt></p>
+<p>之后点击右上方的查看代码，就可以看到使用方法：</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1fb3yy4ue4gj20lq0e3405.jpg" alt></p>
+<p><img src="http://ww2.sinaimg.cn/large/841aea59jw1fb3yy7ox5hj20le07xdg6.jpg" alt></p>
+<p>简单来说，<code>MyzcXv?1467719328</code>就是平台所生成的脚本地址，你可以把它放在<code>script</code>或者<code>img</code>标签的<code>src</code>属性中，在把标签插入存在 XSS 漏洞的地方，然后浏览器就会执行。</p>
+<p>下面我们点击之前创建的<code>aaa</code>项目。</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1faximf8m9uj213m0o0q6c.jpg" alt></p>
+<p>我们把<code>&lt;script src=&quot;...&quot;&gt;&lt;/script&gt;</code>注入到反射型 XSS 的演示页面中。</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1faximjwhluj20m807ht95.jpg" alt></p>
+<p>提交之后页面没什么动静，但是我们查看利用平台，可以发现新增了一条数据：</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1faximnishnj20qs0g5q4k.jpg" alt></p>
+<h2 id="附录："><a href="#附录：" class="headerlink" title="附录："></a>附录：</h2><ul>
+<li><p><a href="http://cheatsheets.hackdig.com/?4.htm" target="_blank" rel="noopener">XSS 过滤绕过备忘单</a></p>
+</li>
+<li><p><a href="https://html5sec.org/" target="_blank" rel="noopener">HTML5 安全备忘单</a></p>
+</li>
+<li><p><a href="http://www.freebuf.com/articles/web/123779.html" target="_blank" rel="noopener">新手指南：DVWA-1.9全级别教程之XSS</a></p>
+</li>
+<li><p><a href="https://www.gitbook.com/book/wizardforcel/xss-naxienian/details" target="_blank" rel="noopener">那些年我们一起学XSS</a></p>
+</li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2019/12/04/漏洞篇 XSS/">http://yoursite.com/2019/12/04/漏洞篇 XSS/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY<strong>?</strong></strong></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/12/04/漏洞篇 SSRF/"></a>
+            
+            
+            <a class="next" rel="next" href="/2019/12/04/漏洞篇 代码执行/"></a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

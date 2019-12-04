@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Velpro_Q&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Velpro_Q&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title"></h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">December 4, 2019&nbsp;&nbsp;19:00:32</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="米斯特白帽培训讲义-漏洞篇-越权"><a href="#米斯特白帽培训讲义-漏洞篇-越权" class="headerlink" title="米斯特白帽培训讲义 漏洞篇 越权"></a>米斯特白帽培训讲义 漏洞篇 越权</h1><blockquote>
+<p>讲师：<a href="https://www.zhihu.com/people/gh0stkey/answers" target="_blank" rel="noopener">gh0stkey</a></p>
+</blockquote>
+<blockquote>
+<p>整理：<a href="https://github.com/" target="_blank" rel="noopener">飞龙</a></p>
+</blockquote>
+<blockquote>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<p>越权漏洞是 Web 应用程序中一种常见的安全漏洞。它的威胁在于一个账户即可控制全站用户数据。当然这些数据仅限于存在漏洞功能对应的数据。越权漏洞的成因主要是开发人员在对数据进行增、删、改、查时对客户端请求的数据过于信任而遗漏了权限的判定。所以测试越权就是和开发人员拼细心的过程。</p>
+<p><img src="http://ww2.sinaimg.cn/large/841aea59jw1fay9vzjowej20f70aggln.jpg" alt></p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
+<li>水平越权：权限不变，身份改变</li>
+<li>垂直越权：身份不变，权限改变</li>
+</ul>
+<h2 id="信息遍历"><a href="#信息遍历" class="headerlink" title="信息遍历"></a>信息遍历</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$id = @$_GET[<span class="string">'id'</span>];</span><br><span class="line">$arr = <span class="keyword">array</span>(<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>, <span class="string">'5'</span>);</span><br><span class="line"><span class="keyword">if</span>(in_array($id, $arr, <span class="keyword">true</span>)) </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"用户名：$id 密码：123456"</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"信息出错"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码首先从 URL 参数中读取 ID，之后与现存 ID 比对，如果存在则输出 ID 和密码，不存在则报错。这里 ID 是被查询的信息，假设系统里一共就五个 ID。由于这里不存在过滤，那么我们可以不绕过任何东西来查询它们。</p>
+<p>信息遍历属于水平越权，因为用户还是普通用户，但是身份变成了其它的普通用户。当遇到带有<code>id=xxx</code>的页面时，我们要留意它，因为这里可能存在越权漏洞。我们可以手动测试，将<code>id</code>改为其他值，也可以使用 Burp 的爆破功能来测试。</p>
+<h2 id="隐藏式后台"><a href="#隐藏式后台" class="headerlink" title="隐藏式后台"></a>隐藏式后台</h2><p>一些网站的后台不存在任何用户校验，反之，它会把后台隐藏起来。隐藏之后，公开页面上不存在任何到后台的链接，但是如果直接输入 URL，还是可以访问的。那我们就能使用扫描器扫出后台地址，然后直接访问。</p>
+<p>隐藏式后台属于垂直越权，因为用户的身份没有变，但是它拥有了管理员权限。</p>
+<h2 id="Cookie-绕过"><a href="#Cookie-绕过" class="headerlink" title="Cookie 绕过"></a>Cookie 绕过</h2><p>有些时候，我们可以绕过 Cookie、JS 代码的验证执行越权。</p>
+<p>首先看一段代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- pass-cookie.php --&gt;</span><br><span class="line">&lt;form action=<span class="string">""</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"name"</span>/&gt;</span><br><span class="line">    &lt;input type=<span class="string">"password"</span> name=<span class="string">"pass"</span>/&gt;</span><br><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"登录"</span>/&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$name=@$_POST[<span class="string">'name'</span>];</span><br><span class="line">$pass=@$_POST[<span class="string">'pass'</span>];</span><br><span class="line"><span class="keyword">if</span>($name==<span class="string">"admin"</span> &amp;&amp; $pass==<span class="string">"admin123"</span>)&#123;</span><br><span class="line">	setcookie(<span class="string">'name'</span>,<span class="string">'admin'</span>);</span><br><span class="line">	header(<span class="string">"Location:user.php"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码模拟了登录页面，如果账号是<code>admin</code>，密码是<code>admin123</code>，则在 Cookie 中将<code>name</code>设置为<code>admin</code>，然后跳到<code>user.php</code>。</p>
+<p>再来看<code>user.php</code>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">isset</span>($_COOKIE[<span class="string">"name"</span>]))&#123;</span><br><span class="line">	header(<span class="string">"Location:past-cookie.php"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	$name=$_COOKIE[<span class="string">'name'</span>];</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"Welcome "</span>.$name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码先检验 Cookie中的<code>name</code>，不存在则跳回去，存在则输出其值。</p>
+<p>这段代码的最大问题就是验证极其不严密，它拿到<code>name</code>之后并没有验证它是谁，也没有使用数据库来查询。就像劲舞团里面，我们按特定的键才能通过，他这个漏洞就相当于，游戏需要我们按下<code>Z</code>，但是我们按下<code>X</code>也能通过，甚至按任意键也可以。</p>
+<p>既然 Cookie 是用户可控的，那我们就可以伪造一个值了，我们接下来会用到 BurpSuite。首先在 浏览器中将代理设为<code>127.0.0.1:8888</code>：</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1fay9w40bhoj20zq0iodh2.jpg" alt></p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1fay9w9khwej2086099q2y.jpg" alt></p>
+<p>之后打开 Burp，设置代理，并打开拦截模式：</p>
+<p><img src="http://ww2.sinaimg.cn/large/841aea59jw1fay9wd47ktj20gb05waaa.jpg" alt></p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1fay9wgrll3j20c5047glm.jpg" alt></p>
+<p>假设我们不经过登录页面，直接访问<code>user.php</code>，Burp 中应该能看到拦截到的请求：</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1fay9wk61i8j20ok0j8gmz.jpg" alt></p>
+<p>我们伪造<code>Cookie: name=xxx</code>，然后放行：</p>
+<p><img src="http://ww2.sinaimg.cn/large/841aea59jw1fay9wocqyfj20ok0j8q4c.jpg" alt></p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1fay9wstdw5j20gm05qglo.jpg" alt></p>
+<p>成功绕过了验证。</p>
+<h2 id="JS-绕过"><a href="#JS-绕过" class="headerlink" title="JS 绕过"></a>JS 绕过</h2><p>JS 绕过则是把所有校验放在前端，比如，<code>user.php</code>的内容改为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">function chkcookies()</span><br><span class="line">&#123;</span><br><span class="line">  var NameOfCookie="name";</span><br><span class="line">  var c = document.cookie.indexOf(NameOfCookie+"="); </span><br><span class="line">  if (c != -1)</span><br><span class="line">  &#123;</span><br><span class="line">    return true;</span><br><span class="line">	alert("登录成功");</span><br><span class="line"><span class="xml">	var str_html="<span class="tag">&lt;<span class="name">h1</span>&gt;</span>欢迎登录本系统<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>";</span></span><br><span class="line">	document.write(str_html);</span><br><span class="line">  &#125;</span><br><span class="line">  else</span><br><span class="line">  &#123;</span><br><span class="line">   alert("请不要非法访问");</span><br><span class="line">   location.href="past-js.php";</span><br><span class="line">  &#125;</span><br><span class="line">  return false;</span><br><span class="line">&#125;</span><br><span class="line">chkcookies();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>那我们就不必改什么 Cookie了，直接访问服务器拿到纯文本，之后不解释 JS 就可以了。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2019/12/04/漏洞篇 越权/">http://yoursite.com/2019/12/04/漏洞篇 越权/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY<strong>?</strong></strong></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/12/04/漏洞篇 文件包含/"></a>
+            
+            
+            <a class="next" rel="next" href="/2019/12/04/工具篇 BruteXSS/"></a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

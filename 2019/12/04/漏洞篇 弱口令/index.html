@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Velpro_Q&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Velpro_Q&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title"></h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">December 4, 2019&nbsp;&nbsp;19:00:32</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="米斯特白帽培训讲义-漏洞篇-弱口令、爆破、遍历"><a href="#米斯特白帽培训讲义-漏洞篇-弱口令、爆破、遍历" class="headerlink" title="米斯特白帽培训讲义 漏洞篇 弱口令、爆破、遍历"></a>米斯特白帽培训讲义 漏洞篇 弱口令、爆破、遍历</h1><blockquote>
+<p>讲师：<a href="https://www.zhihu.com/people/gh0stkey/answers" target="_blank" rel="noopener">gh0stkey</a></p>
+</blockquote>
+<blockquote>
+<p>整理：<a href="https://github.com/" target="_blank" rel="noopener">飞龙</a></p>
+</blockquote>
+<blockquote>
+<p>协议：<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+</blockquote>
+<h2 id="成因"><a href="#成因" class="headerlink" title="成因"></a>成因</h2><p>弱口令没有严格和准确的定义，通常认为容易被别人（它们有可能对你很了解）猜测或被破解工具破解的口令均为弱口令。弱口令指的是仅包含简单数字和字母的口令，例如”123”、”abc”等，因为这样的口令很容易被别人破解。</p>
+<p>通过爆破工具就可以很容易破解用户的弱口令。</p>
+<h2 id="危害"><a href="#危害" class="headerlink" title="危害"></a>危害</h2><p><img src="http://ww3.sinaimg.cn/large/841aea59jw1fau41nan6lj20tm0c5dh8.jpg" alt></p>
+<p>中石油的多个加油站的视频监控被入侵，我们可以通过它们看一些隐私。也可以通过它把监控器关掉，来进行一些非法活动。</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="普通型"><a href="#普通型" class="headerlink" title="普通型"></a>普通型</h3><p>普通型弱口令就是常见的密码，比如，目前网络上也有人特地整理了常用的弱口令（Top 100）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">123456 a123456 123456a 5201314 111111 woaini1314 qq123456 123123 000000 1qaz2wsx 1q2w3e4r </span><br><span class="line">qwe123 7758521 123qwe a123123 123456aa woaini520 woaini 100200 1314520 woaini123 123321 </span><br><span class="line">q123456 123456789 123456789a 5211314 asd123 a123456789 z123456 asd123456 a5201314 aa123456 </span><br><span class="line">zhang123 aptx4869 123123a 1q2w3e4r5t 1qazxsw2 5201314a 1q2w3e aini1314 31415926 q1w2e3r4 </span><br><span class="line">123456qq woaini521 1234qwer a111111 520520 iloveyou abc123 110110 111111a 123456abc w123456 </span><br><span class="line">7758258 123qweasd 159753 qwer1234 a000000 qq123123 zxc123 123654 abc123456 123456q qq5201314 </span><br><span class="line">12345678 000000a 456852 as123456 1314521 112233 521521 qazwsx123 zxc123456 abcd1234 asdasd </span><br><span class="line">666666 love1314 QAZ123 aaa123 q1w2e3 aaaaaa a123321 123000 11111111 12qwaszx 5845201314 </span><br><span class="line">s123456 nihao123 caonima123 zxcvbnm123 wang123 159357 1A2B3C4D asdasd123 584520 753951 147258 </span><br><span class="line">1123581321 110120 qq1314520</span><br></pre></td></tr></table></figure>
+
+<p>对于网站后台而言，一般为：</p>
+<ul>
+<li>admin</li>
+<li>manager</li>
+<li>admin123</li>
+<li>admin888</li>
+<li>admin666</li>
+<li>…</li>
+</ul>
+<p>具体来说，不同的后台类型拥有不同的弱密码：</p>
+<ul>
+<li>数据库（phpmyadmin）<ul>
+<li>账号：root</li>
+<li>密码：root、root123、123456</li>
+</ul>
+</li>
+<li>tomcat<ul>
+<li>账号：admin、tomcat、manager</li>
+<li>密码：admin、tomcat、admin123、123456、manager</li>
+</ul>
+</li>
+<li>jboss<ul>
+<li>账号：admin、jboss、manager</li>
+<li>密码：admin、jboss、manager、123456</li>
+</ul>
+</li>
+<li>weblogic<ul>
+<li>账号：weblogic、admin、manager</li>
+<li>密码：weblogic、admin、manager、123456</li>
+</ul>
+</li>
+</ul>
+<h3 id="条件型"><a href="#条件型" class="headerlink" title="条件型"></a>条件型</h3><p>条件型弱口令就是和用户信息相关的密码，比如生日+手机号、姓名首字母+生日、爱人姓名首字母+生日+常用字母（520、1314 等）。</p>
+<p>我们可以使用这个<a href="http://www.caimima.net" target="_blank" rel="noopener">猜密码的网站</a>来生成条件弱口令字典。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-eba852fc2180431c.jpg" alt></p>
+<p>比如我们知道一个人，他的信息如下：</p>
+<ul>
+<li>姓名：王小二</li>
+<li>邮箱：<a href="mailto:412391882@qq.com" target="_blank" rel="noopener">412391882@qq.com</a></li>
+<li>英文名：twowang</li>
+<li>手机号：110</li>
+</ul>
+<p>那我们就可以在这个网站上输入这些信息，然后点击下方的“提交”。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-2f881880567e3838.jpg" alt></p>
+<p>然后我们就得到了这个最有可能的密码。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-d68bf436abeca6d1.jpg" alt></p>
+<p>点击“查看更多”之后还可以获取更多弱口令。</p>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>比如说，我们使用这样一段代码来演示弱口令漏洞，它模拟了某个系统的后台。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showForm</span><span class="params">()</span> </span>&#123; <span class="meta">?&gt;</span></span><br><span class="line">&lt;form method=<span class="string">"POST"</span> action=<span class="string">"./lesspass.php"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"un"</span> /&gt;</span><br><span class="line">    &lt;input type=<span class="string">"password"</span> name=<span class="string">"pw"</span> /&gt;</span><br><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"登录"</span> /&gt;</span><br><span class="line">&lt;/form&gt; <span class="meta">&lt;?php</span> </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$un = @$_POST[<span class="string">'un'</span>];</span><br><span class="line">$pw = @$_POST[<span class="string">'pw'</span>];</span><br><span class="line"><span class="keyword">if</span>($un == <span class="string">''</span> &amp;&amp; $pw == <span class="string">''</span>) </span><br><span class="line">    showForm();</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>($un == <span class="string">'admin'</span> &amp;&amp; $pw == <span class="string">'admin888'</span>) </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'登录成功'</span>;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    showForm();</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'登录失败'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一行到第七行组成了一个 HTTP 表单。我们可以看到，这个表单使用 POST 方法向这个页面自己提交信息，<code>un</code>表单域对应 PHP 的<code>un</code>变量，<code>pw</code>表单域对应 PHP 的<code>pw</code>变量。</p>
+<p>第九行和第十行从 HTTP 请求的主体中取出<code>un</code>参数和<code>pw</code>参数。</p>
+<p>第十一到第十八行对用户名和密码参数做判断，如果都为空，那么我们认为它仅仅是显示页面的请求，直接返回。如果<code>un</code>为<code>admin</code>，且<code>pw</code>为<code>admin888</code>，因为这是我们预设的正确用户名和密码，所以显示登陆成功，否则显示登录失败。</p>
+<p>真实代码的用户名和密码是从数据库里面取的，但是它仍然是确定的东西，而且如果存在弱口令，还是能破解出来，原理一致。</p>
+<p>把它保存为<code>lesspass.php</code>，将其部署后访问<code>http://localhost/lesspass.php</code>。</p>
+<p>接下来我们假装不知道真实密码，开始尝试。对于管理员账户，用户名一般是<code>admin</code>，密码可能为<code>admin</code>、<code>admin123</code>、<code>admin888</code>、<code>123456</code>、<code>123abcadmin</code>等等。</p>
+<p>首先输入<code>admin</code>和<code>admin</code>，尝试失败：</p>
+<p><img src="http://ww4.sinaimg.cn/large/841aea59jw1fau41squzzj20eu04zwel.jpg" alt></p>
+<p>之后是<code>admin</code>和<code>admin123</code>，还是失败。最后尝试<code>admin</code>和<code>admin888</code>，成功。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-71e8a2b71d245e71.jpg" alt></p>
+<p>可见，爆破破解的原理就是一个一个尝试，破解效果完全取决于你所使用的字典。如果密码碰巧在你的字典中，就一定能成功。</p>
+<h2 id="Burp-Suite-爆破"><a href="#Burp-Suite-爆破" class="headerlink" title="Burp Suite 爆破"></a>Burp Suite 爆破</h2><p>首先我们需要把浏览器和 Burp 的代理配置好，打开 Burp 的拦截模式。之后我们在<code>lesspass.php</code>页面中随便输入什么东西并提交，在 Burp 中就可以看到拦截的封包：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-033f60ebe540c49e.jpg" alt></p>
+<p>为了爆破密码，我们需要使用它的 Intruder 功能，右键弹出菜单并选择”Send to Intruder”：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-4476dd543cf87dc3.jpg" alt></p>
+<p>之后访问 Intruder 标签页，在 Position 子标签页中我们可以看到封包。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-fa9665e9e6e24942.jpg" alt></p>
+<p>我们需要点击右边的<code>Clear</code>按钮把所有标记清除掉，由于我们需要破解密码，我们选中密码参数值点击<code>Add</code>。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-e0c09d997416bbd6.jpg" alt></p>
+<p>之后我们切换到旁边的 Payloads 标签页，点击中间的<code>load</code>按钮，加载字典。我们选择之前的<code>top100.txt</code>。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-752e922c5dfc31de.jpg" alt></p>
+<p>不要忘了要将<code>admin888</code>插入进去。在下面的输入框中输入<code>admin888</code>，并点击旁边的<code>Add</code>。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-3885a0a3f8ebb864.jpg" alt></p>
+<p>点击右上角的<code>Start Attack</code>来开始爆破（老版本是<code>Intruder -&gt; Start Attack</code>菜单栏），我们会看到结果列表。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-5196bd6f0935d061.jpg" alt></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-c85b3309f8749b8a.jpg" alt></p>
+<p>我们点击<code>Length</code>表头，让它按照长度来排序。可以发现有一个项目的长度与其它明显不同，那么它就是正确的结果。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-c3be9610e5577fe8.jpg" alt></p>
+<h2 id="PKAV-Fuzzer"><a href="#PKAV-Fuzzer" class="headerlink" title="PKAV Fuzzer"></a>PKAV Fuzzer</h2><p>我们可以在<a href="http://www.pkav.net/tool/fuzzer/" target="_blank" rel="noopener">这里</a>下载工具。</p>
+<p>我下载的版本的 1.5.6，我就可以双击<code>Pkav HTTP Fuzzer 1.5.6.exe</code>来打开它。另外目录下还有一份使用手册，<code>Pkav HTTP Fuzzer使用手册 Ver 1.0.pdf</code>，大家可以参考这个手册。这个教程只会讲用到的功能。</p>
+<p>它的主界面是这样的：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-44cc7a2a23a6ac42.jpg" alt></p>
+<p>左边是“请求包”输入框，我们需要填写整个 HTTP 封包（就是 Burp 中的<code>Proxy -&gt; Intercept</code>选项卡中的内容），我们将其复制过来。然后我们选中<code>pw</code>位置的<code>admin</code>，点击下面的“添加标记”：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-d225b5c69f570103.jpg" alt></p>
+<p>我们再来看看右边的“重放设置”，“重放模式”和“变体赋值”都不用改动，我们点击下方的“导入”按钮，选择之前的<code>top100.txt</code>。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-a9116c014584cc0e.jpg" alt></p>
+<p>之后再“添加”按钮右边的输入框中输入<code>admin888</code>，然后点击“添加”。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-76b287c78c22bd98.jpg" alt></p>
+<p>然后我们点击下方的“发包器”选项卡，在新的界面中直接点“启动”：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-be04e331c332c091.jpg" alt></p>
+<p>然后我们点击“长度”表头，让它按照长度排序。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/118142-435fac0d299dd0d1.jpg" alt></p>
+<p>我们可以看到，仅当密码为<code>admin888</code>时长度为 6，其它都是其它数值，那么它就是正确密码。</p>
+<h2 id="Burp-Suite-遍历"><a href="#Burp-Suite-遍历" class="headerlink" title="Burp Suite 遍历"></a>Burp Suite 遍历</h2><p>比如这段代码，我们将其保存为<code>info.php</code>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$id = @$_GET[<span class="string">'id'</span>];</span><br><span class="line">$arr = <span class="keyword">array</span>(<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>, <span class="string">'5'</span>);</span><br><span class="line"><span class="keyword">if</span>(in_array($id, $arr, <span class="keyword">true</span>)) </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"用户名：$id 密码：123456"</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"信息出错"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码模拟了用户信息的查询页面，一共有五条记录。我们可以访问这个页面，并使用 Burp 来拦截。像之前一样，发送到<code>Intruder</code>，然后清除掉所有标记，只保留 ID 的标记：</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1faygj0igqjj20rq0m440f.jpg" alt></p>
+<p>由于是纯数字，我们把上面的<code>Payload Type</code>调成<code>Numbers</code>。下面，我们把<code>From</code>设为<code>1</code>，<code>To</code>设为<code>10</code>，<code>Step</code>设为<code>1</code>。</p>
+<p><img src="http://ww1.sinaimg.cn/large/841aea59jw1faygj48uunj20rr0m3myp.jpg" alt></p>
+<p>之后点击<code>Start Attack</code>。我们可以看到结果，其中ID 1 ~ 5 的长度都是 224，6 ~ 10 都是 211。我们之前的测试中，2 是有效的，所以 224 应该是有效内容的长度。</p>
+<p><img src="http://ww3.sinaimg.cn/large/841aea59jw1faygj81ytoj20rs0m7jt6.jpg" alt></p>
+<h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><p>更多字典请见 Kali 系统的<code>/usr/share/wordlists</code>目录。</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><ul>
+<li><p><a href="http://www.freebuf.com/articles/web/116437.html" target="_blank" rel="noopener">新手指南：DVWA-1.9全级别教程之Brute Force</a></p>
+</li>
+<li><p><a href="http://www.freebuf.com/articles/web/119692.html" target="_blank" rel="noopener">新手指南：DVWA-1.9全级别教程之Insecure CAPTCHA</a></p>
+</li>
+<li><p><a href="http://www.jianshu.com/p/4d515dd9915f" target="_blank" rel="noopener">Kali Linux 网络扫描秘籍 第七章 Web 应用扫描（一）</a></p>
+</li>
+<li><p><a href="http://www.jianshu.com/p/dfa3136b99b8" target="_blank" rel="noopener">Kali Linux 网络扫描秘籍 第七章 Web 应用扫描（二）</a></p>
+</li>
+<li><p><a href="http://www.jianshu.com/p/8ff6180bec9b" target="_blank" rel="noopener">Kali Linux 网络扫描秘籍 第七章 Web 应用扫描（三）</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/22288110" target="_blank" rel="noopener">Burpsuite神器常用功能使用方法总结</a></p>
+</li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2019/12/04/漏洞篇 弱口令/">http://yoursite.com/2019/12/04/漏洞篇 弱口令/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY<strong>?</strong></strong></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/12/04/漏洞篇 代码执行/"></a>
+            
+            
+            <a class="next" rel="next" href="/2019/12/04/漏洞篇 第三方风险/"></a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
